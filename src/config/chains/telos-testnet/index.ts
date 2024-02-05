@@ -25,27 +25,27 @@ import { Token } from 'src/types';
 import { FooterLink } from 'src/types/UiCustomization';
 
 const CHAIN_ID =
-  '1eaa0824707c8c16bd25145493bf062aecddfeb56c736f6ba6397f3195f33c9f';
-const NAME = 'telos-testnet';
-const DISPLAY = 'Telos';
+  '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
+const NAME = 'pangea-testnet';
+const DISPLAY = 'Pangea Testnet';
 const TOKEN = {
-    symbol: 'TLOS',
+    symbol: 'SYS',
     precision: 4,
     amount: 0,
     contract: 'eosio.token',
 } as Token;
-const HYPERION_ENDPOINT = 'https://testnet.telos.net';
-const S3_PRODUCER_BUCKET = 'https://telos-producer-validation.s3.amazonaws.com';
+const HYPERION_ENDPOINT = 'https://test.pangea.eosusa.io';
+const S3_PRODUCER_BUCKET = '#';
 const RPC_ENDPOINT = {
     protocol: 'https',
-    host: 'testnet.telos.net',
+    host: 'test.pangea.eosusa.io',
     port: 443,
 };
-const API_ENDPOINT = 'https://api-dev.telos.net/v1';
+const API_ENDPOINT = 'https://blockchain-api-testnet.pangea.web4.world/';
 const DISPLAY_MAP = false;
 const THEME = {
-    primary: '#571aff',
-    secondary: '#071A5F',
+    primary: '#67D7ED',
+    secondary: '#E76773',
     accent: '#9C27B0',
     dark: '#1d1d1d',
     positive: '#21BA45',
@@ -61,11 +61,11 @@ const THEME = {
     'color-progress-gradient': '#571aff',
     'color-producer-card-background': '#f5f4fe',
     'color-select-box-background': '#e0dffb',
-    'color-header-background': '#071A5F',
+    'color-header-background': '#67D7ED',
     'color-header-border': '#8a65d41a',
     'color-header-support-background': 'linear-gradient(180deg, #071A5F 0%, #571aff 147.34%)',
     'color-graph-shadow': '#571aff28',
-    'color-footer-background': '#071A5F',
+    'color-footer-background': '#67D7ED',
 };
 
 export default class TelosTestnet extends BaseChain {
@@ -114,7 +114,7 @@ export default class TelosTestnet extends BaseChain {
     }
 
     getLargeLogoPath(): string {
-        return 'chains/telos/telos_logo.png';
+        return 'chains/telos/telos_logo.svg';
     }
 
     getSmallLogoPath(): string {

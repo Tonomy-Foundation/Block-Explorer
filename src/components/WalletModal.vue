@@ -13,7 +13,7 @@ export default defineComponent({
         const $q = useQuasar();
         const store = useStore();
         const error = ref<string>(null);
-        const account = computed(() => store.state.account.accountName);
+        const account = computed(() => store?.state?.account?.accountName);
         const loading = {};
         const walletDialog = ref<DialogChainObject>(null);
         const iconSize = computed(() => {

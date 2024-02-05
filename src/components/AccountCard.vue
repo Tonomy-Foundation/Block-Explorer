@@ -119,7 +119,7 @@ export default defineComponent({
             return result;
         });
 
-        const isAccount = computed((): boolean => store.state.account.accountName === props.account);
+        const isAccount = computed((): boolean => store?.state?.account?.accountName === props.account);
 
         const createTimeFormat = computed((): string =>
             date.formatDate(createTime.value, 'DD MMMM YYYY @ hh:mm A'),

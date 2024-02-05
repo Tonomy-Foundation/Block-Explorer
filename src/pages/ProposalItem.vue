@@ -24,7 +24,7 @@ export default defineComponent({
         const store = useStore();
 
         const { proposalName } = route.params;
-        const account = computed(() => store.state.account.accountName);
+        const account = computed(() => store?.state?.account?.accountName);
         const isAuthenticated = computed(() => store.state.account.isAuthenticated);
         const isLoading = ref(true);
 

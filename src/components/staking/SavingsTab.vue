@@ -15,7 +15,7 @@ export default defineComponent({
         const store = useStore();
         const openTransaction = ref<boolean>(false);
         const stakingAccount = computed(
-            (): string => store.state.account.accountName,
+            (): string => store?.state?.account?.accountName,
         );
         const toSavingAmount = ref<string>('');
         const fromSavingAmount = ref<string>('');

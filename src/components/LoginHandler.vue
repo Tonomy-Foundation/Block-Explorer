@@ -16,7 +16,7 @@ export default defineComponent({
 
         const showDropdown = ref(false);
         const showModal = ref(false);
-        const account = computed(() => store.state.account.accountName);
+        const account = computed(() => store?.state?.account?.accountName);
 
         onMounted(() => {
             const storedAccount = localStorage.getItem('account_' + getChain().getChainId());

@@ -10,7 +10,7 @@ export default defineComponent({
     components: { ActionFormat, DataFormat },
     setup() {
         const store = useStore();
-        const account = computed((): string => store.state.account.accountName);
+        const account = computed((): string => store?.state?.account?.accountName);
         function getTree(actions: Action[]): TreeNode[] {
             let array = [] as TreeNode[];
             for (let action of actions) {

@@ -22,7 +22,7 @@ export default defineComponent({
     setup() {
         const store = useStore();
         const symbol = chain.getSystemToken().symbol;
-        const account = computed(() => store.state.account.accountName);
+        const account = computed(() => store?.state?.account?.accountName);
         const balance = computed(
             () => formatCurrency(lastWeight.value, 2, symbol),
         );

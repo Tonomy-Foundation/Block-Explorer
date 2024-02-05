@@ -19,7 +19,7 @@ export default defineComponent({
         const store = useAntelopeStore();
         const openTransaction = ref<boolean>(false);
         const stakingAccount = ref<string>(
-            store.state.account.accountName.toLowerCase() || '',
+            store?.state?.account?.accountName.toLowerCase() || '',
         );
         const cpuTokens = ref<string>('0');
         const netTokens = ref<string>('0');

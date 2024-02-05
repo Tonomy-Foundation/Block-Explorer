@@ -27,7 +27,7 @@ export default defineComponent({
         const router = useRouter();
         const store = useStore();
         const $q = useQuasar();
-        const account = computed(() => store.state.account.accountName);
+        const account = computed(() => store?.state?.account?.accountName);
         const isAuthenticated = computed(() => store.state.account.isAuthenticated);
         const actionsTab = ref<'one' | 'batch'>('one');
         const amountOfDaysToExpire = ref(7);

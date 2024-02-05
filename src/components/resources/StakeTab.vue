@@ -18,7 +18,7 @@ export default defineComponent({
     setup() {
         const store = useAntelopeStore();
         const openTransaction = ref<boolean>(false);
-        const stakingAccount = ref<string>(store.state.account.accountName || '');
+        const stakingAccount = ref<string>(store?.state?.account?.accountName || '');
         const accountTotal = computed((): string =>
             (store.state.account.data.core_liquid_balance ?? 0).toString(),
         );
@@ -84,7 +84,7 @@ export default defineComponent({
                 return;
             }
             await this.delegateResources({
-                from: this.$store.state.account.accountName,
+                from: this.$store?.state?.account?.accountName,
                 to: this.stakingAccount.toLowerCase().trim(),
                 transfer: false,
                 cpu_weight:
