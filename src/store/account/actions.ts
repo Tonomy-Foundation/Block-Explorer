@@ -29,6 +29,7 @@ export const actions: ActionTree<AccountStateInterface, StateInterface> = {
             const account = new FuelUserWrapper(users[0]);
             const permission = (account as unknown as { requestPermission: string })
                 .requestPermission;
+            // here can you check that account name is coming here from fuel.ts
             const accountName = await account.getAccountName();
 
             commit('setAccountPermission', permission || 'active');
@@ -36,7 +37,6 @@ export const actions: ActionTree<AccountStateInterface, StateInterface> = {
             commit('setIsAuthenticated', true);
             commit('setAccountName', accountName);
             commit('setChainId', (authenticator as Authenticator).chains[0].chainId);
-
             localStorage.setItem(`account_${(authenticator as Authenticator).chains[0].chainId}`, accountName);
             localStorage.setItem(
                 `autoLogin_${(authenticator as Authenticator).chains[0].chainId}`,

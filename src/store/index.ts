@@ -63,6 +63,7 @@ export default store(function () {
     return Store;
 });
 
+//use Store is defined here
 export function useStore() {
     return vuexUseStore(storeKey);
 }
