@@ -37,10 +37,10 @@ export const getCoingeckoPriceChartData = async (
 // eslint-disable-next-line @typescript-eslint/require-await
 export const getEmptyPriceChartData = async (): Promise<PriceChartData> => ({
     lastUpdated: 0,
-    tokenPrice: 0,
+    tokenPrice:  0.026,
     dayChange: 0,
     dayVolume: 0,
-    marketCap: 0,
+    marketCap: 1300000000,
     prices: [],
 });
 
