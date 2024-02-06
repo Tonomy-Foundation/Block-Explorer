@@ -10,8 +10,7 @@ import { ChainsConfig } from 'src/types/ChainsConfig';
 
 const chains: ChainsConfig = {
     mainnets: [new EOS('eos'), new Telos('telos'), new UX('ux'), new Wax('wax')],
-    testnets: [new Jungle('jungle'), new TelosTestnet('telos-testnet')],
-    pangeaTestnets: [new Jungle('jungle'), new PangeaTestnet('pangea-testnet')],
+    testnets: [new Jungle('jungle'), new TelosTestnet('telos-testnet'), new PangeaTestnet('pangea-testnet')],
 };
 
 export default chains;
