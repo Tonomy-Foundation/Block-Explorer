@@ -150,7 +150,7 @@ export default defineComponent({
                     <p class="border-line"></p>
                 </div>
             </div>
-            <div class="col-12 flex row">
+            <!-- <div class="col-12 flex row">
                 <div class="col-6 chart-info">
                     <p>24H CHANGE</p>
                     <p class="sub-title">{{ dayChange  }}</p>
@@ -159,7 +159,7 @@ export default defineComponent({
                     <p>24H VOLUME</p>
                     <p class="sub-title">{{ dayVolume }}</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
