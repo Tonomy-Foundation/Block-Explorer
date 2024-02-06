@@ -64,9 +64,7 @@ export default store(function () {
 });
 
 export function useStore() {
-    console.log(vuexUseStore);
-    console.log(storeKey);
-    console.log(vuexUseStore(storeKey));
+ 
     return vuexUseStore(storeKey);
 }
 
