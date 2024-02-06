@@ -21,7 +21,7 @@ export default defineComponent({
         const store = useStore();
         const headerSettings = computed(() : HeaderSettings => ConfigManager.get().getCurrentChain().getUiCustomization().headerSettings);
 
-        const account = computed(() => store?.state?.account?.accountName);
+        const account = computed(() => store.state.account.accountName);
         const isLarge = computed((): boolean => $q.screen.gt.sm);
         const showMultichainSelector = computed(() => process.env.SHOW_MULTICHAIN_SELECTOR === 'true');
 

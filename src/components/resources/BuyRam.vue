@@ -20,7 +20,7 @@ export default defineComponent({
         const symbol = ref<string>(chain.getSystemToken().symbol);
         const buyOptions = [symbol.value, 'Bytes'];
         const buyOption = ref<string>(buyOptions[0]);
-        const receivingAccount = ref<string>(store?.state?.account?.accountName);
+        const receivingAccount = ref<string>(store.state.account.accountName);
         const transactionId = computed(
             (): string => store.state.account.TransactionId,
         );

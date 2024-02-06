@@ -55,7 +55,7 @@ export default defineComponent({
         const withdrawRexFund = async () => {
             await store.dispatch('account/unstakeRexFund', { amount: rexfund.value });
             void store.dispatch('account/updateRexData', {
-                account: store?.state?.account?.accountName,
+                account: store.state.account.accountName,
             });
         };
 

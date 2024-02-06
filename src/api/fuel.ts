@@ -21,7 +21,6 @@ import {
 import { getChain } from 'src/config/ConfigManager';
 import { Dialog } from 'quasar';
 import { formatCurrency } from "src/utils/string-utils";
-//we can also check this file account name coming or not
 // The maximum fee per transaction this script is willing to accept
 const maxFee = 0.05;
 

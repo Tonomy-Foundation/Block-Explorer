@@ -22,7 +22,7 @@ export default defineComponent({
         const transactionId = ref<string>(store.state.account.TransactionId);
         const transactionError = ref<unknown>(store.state.account.TransactionError);
         const stakingAccount = computed(
-            (): string => store?.state?.account?.accountName,
+            (): string => store.state.account.accountName,
         );
         const accountData = computed((): API.v1.AccountObject => store.state?.account.data);
         const cpuWeight = computed(

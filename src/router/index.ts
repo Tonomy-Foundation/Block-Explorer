@@ -1,7 +1,4 @@
 import { route } from 'quasar/wrappers';
-import { createApp } from 'vue';
-import store, { storeKey } from 'src/store';
-import App from 'src/App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import { StateInterface } from 'src/store';
 import routes from 'src/router/routes';
@@ -30,8 +27,6 @@ const updateSelectedChain = (chainName: string) => {
 
 export default route<StateInterface>(function (/* { store, ssrContext } */) {
     const createHistory = createWebHistory;
-    createApp(App).use(store, storeKey).mount('#app');
-
     const Router = createRouter({
         routes,
 

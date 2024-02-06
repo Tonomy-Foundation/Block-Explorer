@@ -15,7 +15,7 @@ export default defineComponent({
         const router = useRouter();
         const store = useStore();
         const blockProducers = ref<string[]>([]);
-        const account = computed(() => store?.state?.account?.accountName);
+        const account = computed(() => store.state.account.accountName);
         const isAuthenticated = computed(() => store.state.account.isAuthenticated);
 
         const tab = ref<string>((route.query['tab'] as string) || 'myProposal');

@@ -12,7 +12,7 @@ export default defineComponent({
     setup() {
         const authenticators = getAuthenticators();
         const store = useStore();
-        const account = computed(() => store?.state?.account?.accountName);
+        const account = computed(() => store.state.account.accountName);
         const showModal = ref(false);
 
         const getAuthenticator = (): Authenticator => {

@@ -16,7 +16,7 @@ export default defineComponent({
     setup(props) {
         const store = useStore();
         const symbol = chain.getSystemToken().symbol;
-        const account = computed(() => store?.state?.account?.accountName);
+        const account = computed(() => store.state.account.accountName);
         const previousVote = computed(() =>
             store.state.account.data.voter_info
                 ? store.state.account.data.voter_info.producers.map(vote =>

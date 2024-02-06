@@ -142,9 +142,9 @@ export default class TelosTestnet extends BaseChain {
 
     getFooterLinks(): FooterLink[] {
         return [
-            { label: 'LEGAL', url: 'https://telos.net/legal' },
-            { label: 'PRIVACY', url: 'https://telos.net/privacy-policy' },
-            { label: 'REPOSITORY', url: 'https://github.com/telosnetwork/open-block-explorer' },
+            { label: 'LEGAL', url: 'https://pangea.web4.world' },
+            { label: 'PRIVACY', url: 'https://pangea.web4.world' },
+            { label: 'REPOSITORY', url: 'https://github.com/Tonomy-Foundation/Block-Explorer' },
         ];
     }
 }
