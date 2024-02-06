@@ -1,3 +1,17 @@
 {
-    "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }]
-}
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/node",
+        "config": {
+          "entrypoint": "build"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/dist/spa/$1"
+      }
+    ]
+  }
