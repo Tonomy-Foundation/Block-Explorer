@@ -13,7 +13,7 @@ export default defineComponent({
     setup() {
         const authenticators = getAuthenticators();
         const store = useStore();
-        
+
         const showDropdown = ref(false);
         const showModal = ref(false);
         const account = computed(() => store.state.account.accountName);
