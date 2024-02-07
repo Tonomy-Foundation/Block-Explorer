@@ -34,7 +34,6 @@ const customHeaderSettings = {
 
 // Extend baseUiConfiguration and override the headerSettings
 const customUiConfiguration = {
-    ...baseUiConfiguration,
     headerSettings: customHeaderSettings,
     accountPageSettings: {
         hideCpuInfo: false,
