@@ -38,7 +38,7 @@ export const baseUiConfiguration: UiCustomization = {
     headerSettings: {
         hideLoginHandler: false,
         hideNetworkTab: false,
-        hideWalletTab: true,
+        hideWalletTab: false,
         hideVoteTab: false,
         hideProposalTab: false,
     },
