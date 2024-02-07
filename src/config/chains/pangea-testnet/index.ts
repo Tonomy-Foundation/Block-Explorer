@@ -16,13 +16,27 @@ PRODUCER_BUCKET_URL=
 
  */
 
-import BaseChain from 'src/config/BaseChain';
+import BaseChain, { baseUiConfiguration } from 'src/config/BaseChain';
 import { RpcEndpoint } from 'universal-authenticator-library';
 import { PriceChartData } from 'src/types/PriceChartData';
 import { getEmptyPriceChartData } from 'src/api/price';
 import { Theme } from 'src/types/Theme';
 import { Token } from 'src/types';
 import { FooterLink } from 'src/types/UiCustomization';
+
+const customHeaderSettings = {
+    hideLoginHandler: false,
+    hideNetworkTab: false,
+    hideWalletTab: true,
+    hideVoteTab: false,
+    hideProposalTab: false,
+};
+
+// Extend baseUiConfiguration and override the headerSettings
+const customUiConfiguration = {
+    ...baseUiConfiguration,
+    headerSettings: customHeaderSettings,
+};
 
 const CHAIN_ID =
   '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
@@ -67,8 +81,9 @@ const THEME = {
     'color-graph-shadow': '#571aff28',
     'color-footer-background': '#67D7ED',
 };
+console.log(customUiConfiguration);
 
-export default class TelosTestnet extends BaseChain {
+export default class PangeaTestnet extends BaseChain {
     getName(): string {
         return NAME;
     }
@@ -146,5 +161,9 @@ export default class TelosTestnet extends BaseChain {
             { label: 'PRIVACY', url: 'https://pangea.web4.world' },
             { label: 'REPOSITORY', url: 'https://github.com/Tonomy-Foundation/Block-Explorer' },
         ];
+    }
+
+    getUiCustomization() {
+        return customUiConfiguration;
     }
 }
