@@ -47,7 +47,6 @@ export default defineComponent({
     <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
         <LoginHandlerDropdown v-if="account"/>
         <q-btn
-            v-else
             class="button-primary btn-login"
             label="Connect"
             @click="showModal = true"
