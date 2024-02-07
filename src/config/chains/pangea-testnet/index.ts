@@ -27,7 +27,7 @@ import { FooterLink } from 'src/types/UiCustomization';
 const customHeaderSettings = {
     hideLoginHandler: false,
     hideNetworkTab: false,
-    hideWalletTab: true,
+    hideWalletTab: false,
     hideVoteTab: false,
     hideProposalTab: false,
 };
