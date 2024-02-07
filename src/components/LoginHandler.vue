@@ -32,12 +32,14 @@ export default defineComponent({
                 });
             }
         });
+        console.log('account', account.value);
 
         return {
             showDropdown,
             showModal,
             account,
         };
+
     },
 });
 </script>

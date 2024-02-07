@@ -77,7 +77,7 @@ const THEME = {
     'color-select-box-background': '#e0dffb',
     'color-header-background': '#67D7ED',
     'color-header-border': '#8a65d41a',
-    'color-header-support-background': 'linear-gradient(180deg, #071A5F 0%, #571aff 147.34%)',
+    'color-header-support-background': 'linear-gradient(180deg, #D2F3FA 0%, #D2F3FA 147.34%)',
     'color-graph-shadow': '#571aff28',
     'color-footer-background': '#67D7ED',
 };
