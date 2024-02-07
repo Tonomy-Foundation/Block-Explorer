@@ -22,7 +22,7 @@ export const actions: ActionTree<ChainStateInterface, StateInterface> = {
                 .parseFromString(objectList.data, 'text/xml')
                 .getElementsByTagName('Contents');
             const lastEntry = contentsArray[contentsArray.length - 1];
-            const lastKey = lastEntry?.childNodes[0].textContent;
+            const lastKey = lastEntry.childNodes[0].textContent;
             const producerData: BP[] = (
         await axios.get(`${chain.getS3ProducerBucket()}/${lastKey}`)
       ).data as BP[];
