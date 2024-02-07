@@ -27,31 +27,15 @@ import { FooterLink } from 'src/types/UiCustomization';
 const customHeaderSettings = {
     hideLoginHandler: false,
     hideNetworkTab: false,
-    hideWalletTab: false,
+    hideWalletTab: true,
     hideVoteTab: false,
     hideProposalTab: false,
 };
 
 // Extend baseUiConfiguration and override the headerSettings
 const customUiConfiguration = {
+    ...baseUiConfiguration,
     headerSettings: customHeaderSettings,
-    accountPageSettings: {
-        hideCpuInfo: false,
-        hideNetInfo: false,
-        hideRamInfo: false,
-        hideRexInfo: false,
-        hideRefundingInfo: false,
-        hideDelegatedInfo: false,
-
-        hideResourcesControl: false,
-        hideRexControl: false,
-
-        hideTransactionTab: false,
-        hideTokensTab: false,
-        hideKeysTab: false,
-        hideChildrenTab: false,
-        hideContractsTab: false,
-    },
 };
 
 const CHAIN_ID =

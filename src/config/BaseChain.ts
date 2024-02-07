@@ -39,7 +39,7 @@ export const baseUiConfiguration: UiCustomization = {
         hideLoginHandler: false,
 
         hideNetworkTab: false,
-        hideWalletTab: true,
+        hideWalletTab: false,
         hideVoteTab: false,
         hideProposalTab: false,
     },

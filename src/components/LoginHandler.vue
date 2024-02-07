@@ -17,7 +17,7 @@ export default defineComponent({
         const showDropdown = ref(false);
         const showModal = ref(false);
         const account = computed(() => store.state.account.accountName);
-        console.log('account', account);
+
         onMounted(() => {
             const storedAccount = localStorage.getItem('account_' + getChain().getChainId());
             if (storedAccount) {
@@ -32,12 +32,14 @@ export default defineComponent({
                 });
             }
         });
+        console.log('account', account);
 
         return {
             showDropdown,
             showModal,
             account,
         };
+
     },
 });
 </script>
