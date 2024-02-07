@@ -37,6 +37,7 @@ export const DEFAULT_THEME = {
 export const baseUiConfiguration: UiCustomization = {
     headerSettings: {
         hideLoginHandler: false,
+
         hideNetworkTab: false,
         hideWalletTab: false,
         hideVoteTab: false,
