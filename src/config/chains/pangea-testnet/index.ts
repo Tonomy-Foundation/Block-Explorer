@@ -25,10 +25,10 @@ import { Token } from 'src/types';
 import { FooterLink } from 'src/types/UiCustomization';
 
 const customHeaderSettings = {
-    hideLoginHandler: false,
+    hideLoginHandler: true,
     hideNetworkTab: false,
-    hideWalletTab: false,
-    hideVoteTab: false,
+    hideWalletTab: true,
+    hideVoteTab: true,
     hideProposalTab: false,
 };
 
