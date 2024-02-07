@@ -32,7 +32,7 @@ export default defineComponent({
                 });
             }
         });
-        console.log('account', account);
+        console.log('account', account.value);
 
         return {
             showDropdown,
