@@ -8,7 +8,7 @@ export const getCoingeckoUsdPrice = async (
     const stats: PriceStats = await axios.get(
         getCoingeckoExchangeStatsUrl(tokenId),
     );
-
+    console.log('stats', stats);
     return stats.data[tokenId].usd;
 };
 

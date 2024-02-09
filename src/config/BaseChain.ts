@@ -50,6 +50,7 @@ export const baseUiConfiguration: UiCustomization = {
         hideRexInfo: false,
         hideRefundingInfo: false,
         hideDelegatedInfo: false,
+        hideLiquidInfo: false,
 
         hideResourcesControl: false,
         hideRexControl: false,

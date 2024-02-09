@@ -23,6 +23,7 @@ const eosioCore = new APIClient({
 export const getAccount = async function (
     address: string,
 ): Promise<API.v1.AccountObject> {
+    console.log('osioCore.v1.chain.get_account(address)', eosioCore.v1.chain.get_account(address));
     return await eosioCore.v1.chain.get_account(address);
 };
 

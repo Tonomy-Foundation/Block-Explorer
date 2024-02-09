@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Token, GetTableRowsParams, RexbalRows, RexPoolRows } from 'src/types';
+import { Token } from 'src/types'; //GetTableRowsParams, RexbalRows, RexPoolRows
 import { defineComponent, computed, ref, onMounted, watch } from 'vue';
 import { useAntelopeStore } from 'src/store/antelope.store';
 import PercentCircle from 'src/components/PercentCircle.vue';
@@ -12,7 +12,7 @@ import { copyToClipboard } from 'quasar';
 import { getChain } from 'src/config/ConfigManager';
 import { api } from 'src/api';
 import { useRouter } from 'vue-router';
-import { TableIndexType } from 'src/types/Api';
+// import { TableIndexType } from 'src/types/Api';
 import { API, UInt64 } from '@greymass/eosio';
 import { formatCurrency } from 'src/utils/string-utils';
 import ConfigManager from 'src/config/ConfigManager';
@@ -48,10 +48,10 @@ export default defineComponent({
         const isLoading = ref<boolean>(true);
         const tokensLoading = ref<boolean>(true);
         const none = ref<UInt64>(UInt64.from(0));
-        const MICRO_UNIT = ref<number>(Math.pow(10, -6));
-        const KILO_UNIT = ref<number>(Math.pow(10, 3));
-        const MEGA_UNIT = ref<number>(Math.pow(10, 6));
-        const GIGA_UNIT = ref<number>(Math.pow(10, 9));
+        // const MICRO_UNIT = ref<number>(Math.pow(10, -6));
+        // const KILO_UNIT = ref<number>(Math.pow(10, 3));
+        // const MEGA_UNIT = ref<number>(Math.pow(10, 6));
+        // const GIGA_UNIT = ref<number>(Math.pow(10, 9));
         const netUnit = ref<string>('kb');
         const ramUnit = ref<string>('kb');
         const resources = ref<number>(0);
@@ -101,6 +101,7 @@ export default defineComponent({
             : 0);
 
         const totalValue = computed((): number => {
+            console.log('totalValue', totalTokens.value, usdPrice.value);
             if (typeof totalTokens.value === 'number') {
                 return usdPrice.value * totalTokens.value;
             }
@@ -112,7 +113,7 @@ export default defineComponent({
 
             const usd = formatCurrency(totalValue.value ?? 0, 2);
             const tokenPrice = formatCurrency(usdPrice.value ?? 0, 4);
-
+            console.log('usddd', usd, tokenPrice);
             if (totalValue.value && usdPrice.value) {
                 result = `$${usd} (@ $${tokenPrice}/${chain.getSystemToken().symbol})`;
             }
@@ -133,9 +134,10 @@ export default defineComponent({
             try {
                 isLoading.value = true;
                 accountData.value = await api.getAccount(props.account);
+                console.log('accountData', accountData.value);
                 await loadAccountCreatorInfo();
-                await loadBalances();
-                loadResources();
+                // await loadBalances();
+                // loadResources();
                 setTotalBalance();
                 await updateTokenBalances();
                 await updateResources({ account: props.account, force: true });
@@ -146,92 +148,92 @@ export default defineComponent({
             }
         };
 
-        const loadBalances = async () => {
-            try {
-                const total  = await getRexBalance();
-                rexDeposits.value = await getRexFund();
-                rexStaked.value = total;
-            } catch (e) {
-                $q.notify('REX information not available!');
-            }
-        };
+        // const loadBalances = async () => {
+        //     try {
+        //         const total  = await getRexBalance();
+        //         rexDeposits.value = await getRexFund();
+        //         rexStaked.value = total;
+        //     } catch (e) {
+        //         $q.notify('REX information not available!');
+        //     }
+        // };
 
-        const determineUnit = (size: number) => {
-            if (size > GIGA_UNIT.value) {
-                return {
-                    unit: 'gb',
-                    denominator: GIGA_UNIT.value,
-                };
-            }
-            if (size > MEGA_UNIT.value) {
-                return {
-                    unit: 'mb',
-                    denominator: MEGA_UNIT.value,
-                };
-            }
-            return {
-                unit: 'kb',
-                denominator: KILO_UNIT.value,
-            };
-        };
+        // const determineUnit = (size: number) => {
+        //     if (size > GIGA_UNIT.value) {
+        //         return {
+        //             unit: 'gb',
+        //             denominator: GIGA_UNIT.value,
+        //         };
+        //     }
+        //     if (size > MEGA_UNIT.value) {
+        //         return {
+        //             unit: 'mb',
+        //             denominator: MEGA_UNIT.value,
+        //         };
+        //     }
+        //     return {
+        //         unit: 'kb',
+        //         denominator: KILO_UNIT.value,
+        //     };
+        // };
 
-        const loadResources = () => {
-            let ramDenominator;
-            if (props.account !== system_account.value) {
-                // display max resource unit value for readability
-                const ramMaxNumber = Number(accountData.value.ram_quota);
-                const ramUnitResult = determineUnit(ramMaxNumber);
-                ramDenominator = ramUnitResult.denominator;
-                ramUnit.value = ramUnitResult.unit;
-                // get displayed number value
-                ram_max.value = fixDec(
-                    ramMaxNumber / ramDenominator,
-                );
-                // get units
-                const netUsedNumber = Number(accountData.value.net_limit.used);
-                const netMaxNumber = Number(accountData.value.net_limit.max);
-                const netUnitResult = determineUnit(netMaxNumber);
-                const netDenominator = netUnitResult.denominator;
-                netUnit.value = netUnitResult.unit;
-                net_used.value = fixDec(
-                    netUsedNumber / netDenominator,
-                );
-                net_max.value = fixDec(
-                    netMaxNumber / netDenominator,
-                );
-                cpu_used.value = fixDec(
-                    Number(accountData.value.cpu_limit.used) * MICRO_UNIT.value,
-                );
-                cpu_max.value = fixDec(
-                    Number(accountData.value.cpu_limit.max) * MICRO_UNIT.value,
-                );
-                stakedResources.value =
-                    Number(accountData.value.total_resources.cpu_weight.value) +
-                    Number(accountData.value.total_resources.net_weight.value);
+        // const loadResources = () => {
+        //     let ramDenominator;
+        //     if (props.account !== system_account.value) {
+        //         // display max resource unit value for readability
+        //         const ramMaxNumber = Number(accountData.value.ram_quota);
+        //         const ramUnitResult = determineUnit(ramMaxNumber);
+        //         ramDenominator = ramUnitResult.denominator;
+        //         ramUnit.value = ramUnitResult.unit;
+        //         // get displayed number value
+        //         ram_max.value = fixDec(
+        //             ramMaxNumber / ramDenominator,
+        //         );
+        //         // get units
+        //         const netUsedNumber = Number(accountData.value.net_limit.used);
+        //         const netMaxNumber = Number(accountData.value.net_limit.max);
+        //         const netUnitResult = determineUnit(netMaxNumber);
+        //         const netDenominator = netUnitResult.denominator;
+        //         netUnit.value = netUnitResult.unit;
+        //         net_used.value = fixDec(
+        //             netUsedNumber / netDenominator,
+        //         );
+        //         net_max.value = fixDec(
+        //             netMaxNumber / netDenominator,
+        //         );
+        //         cpu_used.value = fixDec(
+        //             Number(accountData.value.cpu_limit.used) * MICRO_UNIT.value,
+        //         );
+        //         cpu_max.value = fixDec(
+        //             Number(accountData.value.cpu_limit.max) * MICRO_UNIT.value,
+        //         );
+        //         stakedResources.value =
+        //             Number(accountData.value.total_resources.cpu_weight.value) +
+        //             Number(accountData.value.total_resources.net_weight.value);
 
-                stakedCPU.value = Number(
-                    accountData.value.self_delegated_bandwidth?.cpu_weight.value || 0,
-                );
+        //         stakedCPU.value = Number(
+        //             accountData.value.self_delegated_bandwidth?.cpu_weight.value || 0,
+        //         );
 
-                stakedNET.value = Number(
-                    accountData.value.self_delegated_bandwidth?.net_weight.value || 0,
-                );
+        //         stakedNET.value = Number(
+        //             accountData.value.self_delegated_bandwidth?.net_weight.value || 0,
+        //         );
 
-                delegatedByOthers.value = Math.abs(
-                    stakedResources.value - stakedNET.value - stakedCPU.value,
-                );
-            }
-            const ramUsedNumber = Number(accountData.value.ram_usage);
-            // only change denominator and units if wasn't already set
-            if (!ramDenominator) {
-                const ramUnitResult = determineUnit(ramUsedNumber);
-                ramDenominator = ramUnitResult.denominator;
-                ramUnit.value = ramUnitResult.unit;
-            }
-            ram_used.value = fixDec(
-                ramUsedNumber / ramDenominator,
-            );
-        };
+        //         delegatedByOthers.value = Math.abs(
+        //             stakedResources.value - stakedNET.value - stakedCPU.value,
+        //         );
+        //     }
+        //     const ramUsedNumber = Number(accountData.value.ram_usage);
+        //     // only change denominator and units if wasn't already set
+        //     if (!ramDenominator) {
+        //         const ramUnitResult = determineUnit(ramUsedNumber);
+        //         ramDenominator = ramUnitResult.denominator;
+        //         ramUnit.value = ramUnitResult.unit;
+        //     }
+        //     ram_used.value = fixDec(
+        //         ramUsedNumber / ramDenominator,
+        //     );
+        // };
 
         const setTotalBalance = () => {
             totalTokens.value = liquidNative.value + rex.value + staked.value + delegatedToOthers.value;
@@ -262,69 +264,69 @@ export default defineComponent({
         const updateResources = (payload: {account:string, force: boolean}) =>
             store.resources.updateResources(payload);
 
-        const getRexFund = async () => {
-            const paramsrexfund = {
-                code: 'eosio',
-                limit: '1',
-                lower_bound: props.account as unknown as TableIndexType,
-                scope: 'eosio',
-                table: 'rexfund',
-                reverse: false,
-                upper_bound: props.account as unknown as TableIndexType,
-            } as GetTableRowsParams;
-            const rexfund = (
-                (await api.getTableRows(paramsrexfund)) as {
-                    rows: {
-                        owner: string;
-                        balance: string;
-                    }[];
-                }
-            ).rows[0];
+        // const getRexFund = async () => {
+        //     const paramsrexfund = {
+        //         code: 'eosio',
+        //         limit: '1',
+        //         lower_bound: props.account as unknown as TableIndexType,
+        //         scope: 'eosio',
+        //         table: 'rexfund',
+        //         reverse: false,
+        //         upper_bound: props.account as unknown as TableIndexType,
+        //     } as GetTableRowsParams;
+        //     const rexfund = (
+        //         (await api.getTableRows(paramsrexfund)) as {
+        //             rows: {
+        //                 owner: string;
+        //                 balance: string;
+        //             }[];
+        //         }
+        //     ).rows[0];
 
-            const rexFundBalance =
-                rexfund && rexfund.balance
-                    ? Number(rexfund.balance.split(' ')[0])
-                    : 0.0;
-            return rexFundBalance;
-        };
+        //     const rexFundBalance =
+        //         rexfund && rexfund.balance
+        //             ? Number(rexfund.balance.split(' ')[0])
+        //             : 0.0;
+        //     return rexFundBalance;
+        // };
 
-        const getRexBalance = async () => {
-            const paramsrexbal = {
-                code: 'eosio',
-                limit: '2',
-                lower_bound: props.account as unknown as TableIndexType,
-                scope: 'eosio',
-                table: 'rexbal',
-                reverse: false,
-                upper_bound: props.account as unknown as TableIndexType,
-            } as GetTableRowsParams;
+        // const getRexBalance = async () => {
+        //     const paramsrexbal = {
+        //         code: 'eosio',
+        //         limit: '2',
+        //         lower_bound: props.account as unknown as TableIndexType,
+        //         scope: 'eosio',
+        //         table: 'rexbal',
+        //         reverse: false,
+        //         upper_bound: props.account as unknown as TableIndexType,
+        //     } as GetTableRowsParams;
 
-            const rexBal = ((await api.getTableRows(paramsrexbal)) as RexbalRows)
-                .rows[0];
+        //     const rexBal = ((await api.getTableRows(paramsrexbal)) as RexbalRows)
+        //         .rows[0];
 
-            const totalRexBalance =
-                rexBal?.rex_balance
-                    ? Number(rexBal.rex_balance.split(' ')[0])
-                    : 0;
+        //     const totalRexBalance =
+        //         rexBal?.rex_balance
+        //             ? Number(rexBal.rex_balance.split(' ')[0])
+        //             : 0;
 
-            const paramsrexpool = {
-                code: 'eosio',
-                scope: 'eosio',
-                table: 'rexpool',
-                json: true,
-                reverse: false,
-            } as GetTableRowsParams;
+        //     const paramsrexpool = {
+        //         code: 'eosio',
+        //         scope: 'eosio',
+        //         table: 'rexpool',
+        //         json: true,
+        //         reverse: false,
+        //     } as GetTableRowsParams;
 
-            const rexpool = ((await api.getTableRows(paramsrexpool)) as RexPoolRows)
-                .rows[0];
+        //     const rexpool = ((await api.getTableRows(paramsrexpool)) as RexPoolRows)
+        //         .rows[0];
 
-            const totalRex = Number(rexpool.total_rex.split(' ')[0]);
-            const totalLendable = Number(rexpool.total_lendable.split(' ')[0]);
-            const tlosRexRatio = totalRex > 0 ? totalLendable / totalRex : 1;
+        //     const totalRex = Number(rexpool.total_rex.split(' ')[0]);
+        //     const totalLendable = Number(rexpool.total_lendable.split(' ')[0]);
+        //     const tlosRexRatio = totalRex > 0 ? totalLendable / totalRex : 1;
 
-            const total = totalRex > 0 ? tlosRexRatio * totalRexBalance : 0.0;
-            return total;
-        };
+        //     const total = totalRex > 0 ? tlosRexRatio * totalRexBalance : 0.0;
+        //     return total;
+        // };
 
         const fixDec = (val: number): number => Math.abs(parseFloat(val.toFixed(3)));
 
@@ -375,6 +377,7 @@ export default defineComponent({
         };
 
         const formatAsset = (val: number | string): string => {
+            console.log('value', val);
             if (typeof val === 'undefined') {
                 return '--';
             }
@@ -597,10 +600,10 @@ export default defineComponent({
                         <td v-show="!isLoading" class="text-right total-value">{{ totalValueString }}</td>
                     </tr>
                     <tr></tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="text-left">LIQUID (Telos native)</td>
                         <td class="text-right">{{ formatAsset(liquidNative) }}</td>
-                    </tr>
+                    </tr> -->
                     <tr v-if="!accountPageSettings.hideRexInfo">
                         <td class="text-left">REX staked (includes savings)</td>
                         <td class="text-right">{{ formatAsset(rexStaked) }}</td>
@@ -609,14 +612,14 @@ export default defineComponent({
                         <td class="text-left">REX liquid deposits</td>
                         <td class="text-right">{{ formatAsset(rexDeposits) }}</td>
                     </tr>
-                    <tr v-if="!accountPageSettings.hideCpuInfo">
+                    <!-- <tr v-if="!accountPageSettings.hideCpuInfo">
                         <td class="text-left">STAKED for CPU</td>
                         <td class="text-right">{{ formatAsset(stakedCPU) }}</td>
                     </tr>
                     <tr v-if="!accountPageSettings.hideNetInfo">
                         <td class="text-left">STAKED for NET</td>
                         <td class="text-right">{{ formatAsset(stakedNET) }}</td>
-                    </tr>
+                    </tr> -->
                     <tr v-if="!accountPageSettings.hideRefundingInfo">
                         <td class="text-left">REFUNDING from staking</td>
                         <td class="text-right">{{ formatAsset(stakedRefund) }}</td>
