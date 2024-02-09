@@ -60,7 +60,7 @@ const customUiConfiguration = {
 const CHAIN_ID =
   '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
 const NAME = 'pangea-testnet';
-const DISPLAY = 'pangea-testnet';
+const DISPLAY = 'Pangea testnet';
 const TOKEN = {
     symbol: 'SYS',
     precision: 4,
