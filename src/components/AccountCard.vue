@@ -581,7 +581,7 @@ export default defineComponent({
                 </div>
             </div>
         </q-card-section>
-        <q-markup-table>
+        <!-- <q-markup-table>
             <thead>
                 <tr>
                     <th class="text-left">BALANCE</th>
@@ -600,10 +600,10 @@ export default defineComponent({
                         <td v-show="!isLoading" class="text-right total-value">{{ totalValueString }}</td>
                     </tr>
                     <tr></tr>
-                    <!-- <tr>
+                    <tr>
                         <td class="text-left">LIQUID (Telos native)</td>
                         <td class="text-right">{{ formatAsset(liquidNative) }}</td>
-                    </tr> -->
+                    </tr>
                     <tr v-if="!accountPageSettings.hideRexInfo">
                         <td class="text-left">REX staked (includes savings)</td>
                         <td class="text-right">{{ formatAsset(rexStaked) }}</td>
@@ -612,14 +612,14 @@ export default defineComponent({
                         <td class="text-left">REX liquid deposits</td>
                         <td class="text-right">{{ formatAsset(rexDeposits) }}</td>
                     </tr>
-                    <!-- <tr v-if="!accountPageSettings.hideCpuInfo">
+                    <tr v-if="!accountPageSettings.hideCpuInfo">
                         <td class="text-left">STAKED for CPU</td>
                         <td class="text-right">{{ formatAsset(stakedCPU) }}</td>
                     </tr>
                     <tr v-if="!accountPageSettings.hideNetInfo">
                         <td class="text-left">STAKED for NET</td>
                         <td class="text-right">{{ formatAsset(stakedNET) }}</td>
-                    </tr> -->
+                    </tr>
                     <tr v-if="!accountPageSettings.hideRefundingInfo">
                         <td class="text-left">REFUNDING from staking</td>
                         <td class="text-right">{{ formatAsset(stakedRefund) }}</td>
@@ -634,7 +634,7 @@ export default defineComponent({
                     </tr>
                 </tbody>
             </thead>
-        </q-markup-table>
+        </q-markup-table> -->
         <div v-if="isAccount">
             <SendDialog
                 v-if="openSendDialog"
