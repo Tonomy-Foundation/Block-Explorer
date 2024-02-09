@@ -1,18 +1,20 @@
 /*
-# MAINNET VALUES
-# NETWORK_CHAIN_ID=4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11
-# NETWORK_HOST=mainnet.telos.net
-# NETWORK_PORT=443
-# NETWORK_PROTOCOL=https
-# NETWORK_EVM_RPC=https://mainnet.telos.net/evm
-# NETWORK_EVM_ENDPOINT=https://mainnet.telos.net
-# NETWORK_EVM_CONTRACT=eosio.evm
-# NETWORK_EVM_CHAIN_ID=40
-# HYPERION_ENDPOINT=https://mainnet.telos.net
-# TELOS_API_ENDPOINT=https://api.telos.net/v1
+NETWORK_CHAIN_ID=
+NETWORK_HOST=testnet.telos.net
+NETWORK_PORT=443
+NETWORK_PROTOCOL=https
+NETWORK_EVM_RPC=https://testnet.telos.net/evm
+NETWORK_EVM_ENDPOINT=https://testnet.telos.net
+NETWORK_EVM_CONTRACT=eosio.evm
+NETWORK_EVM_CHAIN_ID=41
+HYPERION_ENDPOINT=https://testnet.telos.net
+TELOS_API_ENDPOINT=https://api-dev.telos.net/v1
+
+# TELOS_API_ENDPOINT=localhost:9999/v1
+APP_NAME=OBE
+PRODUCER_BUCKET_URL=
 
  */
-
 import BaseChain, { baseUiConfiguration } from 'src/config/BaseChain';
 import { RpcEndpoint } from 'universal-authenticator-library';
 import {
@@ -106,7 +108,7 @@ const THEME = {
     'color-footer-background': '#67D7ED',
 };
 
-export default class Telos extends BaseChain {
+export default class PangeaTestnet extends BaseChain {
     getName(): string {
         return NAME;
     }

@@ -30,6 +30,8 @@ import { GetActionsResponse } from 'src/types/Actions';
 
 const chain: Chain = getChain();
 const hyperion = axios.create({ baseURL: chain.getHyperionEndpoint() });
+const api = axios.create({ baseURL: chain.getApiEndpoint() });
+
 const controller = new AbortController();
 export const DEFAULT_ICON = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNyAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTgiIGN5PSI5IiByPSI4IiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjkiIGN5PSI5IiByPSI4IiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=';
 
@@ -217,7 +219,7 @@ export const getPermissionLinks = async function (
 export const getTableByScope = async function (
     data: unknown,
 ): Promise<TableByScope[]> {
-    const response = await hyperion.post('v1/chain/get_table_by_scope', data);
+    const response = await api.post('v1/chain/get_table_by_scope', data);
     return (response.data as {rows:TableByScope[]}).rows;
 };
 
