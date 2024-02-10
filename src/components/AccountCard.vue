@@ -112,7 +112,7 @@ export default defineComponent({
             return result;
         });
 
-        const isAccount = computed((): boolean => store.state.account.accountName === props.account);
+        const isAccount = computed((): boolean => store?.state?.account?.accountName === props.account);
 
         const createTimeFormat = computed((): string =>
             date.formatDate(createTime.value, 'DD MMMM YYYY @ hh:mm A'),
@@ -422,7 +422,7 @@ export default defineComponent({
             <div class="inline-section">
                 <div class="row justify-center full-height items-center">
                     <div class="col-8"></div>
-                    <div class="text-title text-center">Sorry, the account {{ accountExists }} {{ account }} could not be found.</div>
+                    <div class="text-title text-center">Sorry, the existing account {{ accountExists }} {{ account }} could not be found.</div>
                 </div>
             </div>
         </q-card-section>
