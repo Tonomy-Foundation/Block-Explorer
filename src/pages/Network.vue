@@ -90,7 +90,7 @@ export default defineComponent({
         onBeforeUnmount(() => {
             clearListeners();
         });
-        console.log('mapDisplay', mapDisplay, showMap);
+        console.log('mapDisplay', mapDisplay, showMap.value);
         return {
             mapDisplay,
             showMap,
@@ -130,7 +130,7 @@ export default defineComponent({
     </div>
     <div class="container-max-width" :class="{'container-margin' : !showMap}">
         <div v-if="mapDisplay && !showMap" class="col-12 map-data-position">
-            <MapData :mapVisible="mapDisplay" />
+            <MapData :mapVisible="showMap" />
         </div>
         <PriceChart class="price-box-position" :class="{'overlap-map' : mapDisplay && showMap}"/>
         <TransactionsTable/>

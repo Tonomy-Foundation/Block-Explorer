@@ -22,14 +22,14 @@ export const actions: ActionTree<ChainStateInterface, StateInterface> = {
                 .parseFromString(objectList.data, 'text/xml')
                 .getElementsByTagName('Contents');
             const lastEntry = contentsArray[contentsArray.length - 1];
-            const lastKey = lastEntry.childNodes[0].textContent;
+            const lastKey = lastEntry?.childNodes[0]?.textContent;
             const producerData: BP[] = (
         await axios.get(`${chain.getS3ProducerBucket()}/${lastKey}`)
       ).data as BP[];
             let producers = (await api.getProducers()).rows;
             producers = producers.filter(producer => producer.is_active === 1);
-            producers = producers.map((data) => {
-                const bp = producerData.find(
+            producers = producers?.map((data) => {
+                const bp = producerData?.find(
                     producer => producer.owner === data.owner,
                 );
                 if (bp) {
@@ -50,8 +50,8 @@ export const actions: ActionTree<ChainStateInterface, StateInterface> = {
                     };
                 }
             });
-            producerData.sort((a, b) => b.total_votes - a.total_votes);
-            producers.sort((a, b) => b.total_votes - a.total_votes);
+            // producerData?.sort((a, b) => b.total_votes - a.total_votes);
+            // producers?.sort((a, b) => b.total_votes - a.total_votes);
             commit('setProducers', producers);
             commit('setBpList', producerData);
         } catch (err) {
