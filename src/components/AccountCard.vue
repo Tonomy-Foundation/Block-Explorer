@@ -87,7 +87,6 @@ export default defineComponent({
             (accountData.value?.refund_request?.net_amount.value ?? 0),
         );
 
-        const staked = computed((): number => stakedRefund.value + stakedNET.value + stakedCPU.value);
 
         const token = computed((): Token => store?.state?.chain?.token);
 
@@ -128,20 +127,14 @@ export default defineComponent({
                 isLoading.value = true;
                 accountData.value = await api.getAccount(props.account);
                 await loadAccountCreatorInfo();
-                setTotalBalance();
-                await updateTokenBalances();
-                await updateResources({ account: props.account, force: true });
+                // await updateTokenBalances();
+                // await updateResources({ account: props.account, force: true });
             } catch (e) {
                 console.log('error', e);
                 $q.notify(`account ${props.account} not found!`);
                 accountExists.value = false;
                 return;
             }
-        };
-
-        const setTotalBalance = () => {
-            totalTokens.value = liquidNative.value + rex.value + staked.value + delegatedToOthers.value;
-            isLoading.value = false;
         };
 
         const updateTokenBalances = async () => {
@@ -165,16 +158,16 @@ export default defineComponent({
             }
         };
 
-        const updateResources = (payload: {account:string, force: boolean}) =>
-            store.resources.updateResources(payload);
+        // const updateResources = (payload: {account:string, force: boolean}) =>
+        //     store.resources.updateResources(payload);
 
         const fixDec = (val: number): number => Math.abs(parseFloat(val.toFixed(3)));
 
-        const loadSystemToken = (): void => {
-            if (token.value.symbol === '') {
-                setToken(chain.getSystemToken());
-            }
-        };
+        // const loadSystemToken = (): void => {
+        //     if (token.value.symbol === '') {
+        //         setToken(chain.getSystemToken());
+        //     }
+        // };
 
         const loadCreatorAccount = async (): Promise<void> => {
             await router.push({
@@ -236,7 +229,7 @@ export default defineComponent({
         onMounted(async () => {
             usdPrice.value = await chain.getUsdPrice();
             await loadAccountData();
-            loadSystemToken();
+            // loadSystemToken();
         });
 
         watch(
@@ -244,13 +237,6 @@ export default defineComponent({
             async () => {
                 resetBalances();
                 await loadAccountData();
-            },
-        );
-
-        watch(
-            () => store.resources.getDelegatedToOthersAggregated(),
-            () => {
-                setTotalBalance();
             },
         );
 
@@ -296,7 +282,7 @@ export default defineComponent({
             loadAccountData,
             setToken,
             fixDec,
-            loadSystemToken,
+            // loadSystemToken,
             loadCreatorAccount,
             loadCreatorTransaction,
             copy,
