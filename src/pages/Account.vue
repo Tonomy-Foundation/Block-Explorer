@@ -46,7 +46,7 @@ export default defineComponent({
                 },
             });
         });
-
+        console.log('account', account);
         return {
             tab,
             account,
