@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, onMounted, ref, computed, watch } from 'vue';
+import { defineComponent, ref, computed, watch } from 'vue';
 import TransactionsTable from 'components/TransactionsTable.vue';
 import TokensPanel from 'components/TokensPanel.vue';
 import KeysPanel from 'components/KeysPanel.vue';
@@ -34,9 +34,9 @@ export default defineComponent({
         const abi = computed(() => store.state.account.abi.abi);
         const tokenList = ref(api.getTokens(account.value));
 
-        onMounted(async () => {
-            await store.dispatch('account/updateABI', route.params.account);
-        });
+        // onMounted(async () => {
+        //     await store?.dispatch('account/updateABI', route.params.account);
+        // });
 
         watch([tab], () => {
             void router.push({
