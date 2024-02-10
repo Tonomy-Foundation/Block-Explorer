@@ -3,9 +3,6 @@ import { Token } from 'src/types';
 import { defineComponent, computed, ref, onMounted, watch } from 'vue';
 import { useAntelopeStore } from 'src/store/antelope.store';
 import PercentCircle from 'src/components/PercentCircle.vue';
-import SendDialog from 'src/components/SendDialog.vue';
-import ResourcesDialog from 'src/components/resources/ResourcesDialog.vue';
-import StakingDialog from 'src/components/staking/StakingDialog.vue';
 import DateField from 'src/components/DateField.vue';
 import { date, useQuasar } from 'quasar';
 import { copyToClipboard } from 'quasar';
@@ -21,10 +18,7 @@ export default defineComponent({
     name: 'AccountCard',
     components: {
         PercentCircle,
-        SendDialog,
-        ResourcesDialog,
         DateField,
-        StakingDialog,
     },
     props: {
         account: {
@@ -400,29 +394,13 @@ export default defineComponent({
                 </div>
             </div>
         </q-card-section>
-        <div v-if="isAccount">
-            <SendDialog
-                v-if="openSendDialog"
-                v-model="openSendDialog"
-                :availableTokens="availableTokens"
-                @update-token-balances="updateTokenBalances"
-            />
-            <ResourcesDialog
-                v-if="openResourcesDialog"
-                v-model="openResourcesDialog"
-            />
-            <StakingDialog
-                v-model="openStakingDialog"
-                :availableTokens="availableTokens"
-            />
-        </div>
     </q-card>
     <q-card v-else class="account-card">
         <q-card-section class="resources-container">
             <div class="inline-section">
                 <div class="row justify-center full-height items-center">
                     <div class="col-8"></div>
-                    <div class="text-title text-center">Sorry, the existing account {{ accountExists }} {{ account }} could not be found.</div>
+                    <div class="text-title text-center">Sorry, the account {{ accountExists }} {{ account }} could not be found.</div>
                 </div>
             </div>
         </q-card-section>

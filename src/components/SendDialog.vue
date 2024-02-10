@@ -32,7 +32,7 @@ export default defineComponent({
         const sendAmount = ref<string>('');
         const memo = ref<string>('');
 
-        const account = computed(() => store.state.account.accountName);
+        const account = computed(() => store?.state?.account?.accountName);
         const transactionId = computed(
             (): string => store.state.account.TransactionId,
         );
