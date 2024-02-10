@@ -90,7 +90,7 @@ export default defineComponent({
         onBeforeUnmount(() => {
             clearListeners();
         });
-
+        console.log('mapDisplay', mapDisplay, showMap);
         return {
             mapDisplay,
             showMap,
