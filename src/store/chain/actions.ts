@@ -50,8 +50,8 @@ export const actions: ActionTree<ChainStateInterface, StateInterface> = {
                     };
                 }
             });
-            // producerData?.sort((a, b) => b.total_votes - a.total_votes);
-            // producers?.sort((a, b) => b.total_votes - a.total_votes);
+            producerData.sort((a, b) => b.total_votes - a.total_votes);
+            producers.sort((a, b) => b.total_votes - a.total_votes);
             commit('setProducers', producers);
             commit('setBpList', producerData);
         } catch (err) {
@@ -61,6 +61,7 @@ export const actions: ActionTree<ChainStateInterface, StateInterface> = {
     async updateBlockData({ commit }) {
         try {
             const info = await api.getInfo();
+            console.log('info,', info);
             commit('setHead_block_num', info.head_block_num);
             commit('setLIB', info.last_irreversible_block_num);
             commit('setHead_block_producer', info.head_block_producer);
