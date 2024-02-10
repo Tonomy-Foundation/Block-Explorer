@@ -134,7 +134,7 @@ export default defineComponent({
             } catch (e) {
                 console.log('error', e);
                 $q.notify(`account ${props.account} not found!`);
-                accountExists.value = false;
+                // accountExists.value = false;
                 return;
             }
         };
