@@ -317,6 +317,7 @@ export default defineComponent({
 <template>
 
 <div class="q-pa-md">
+    <h2>{{accountExists}}</h2>
     <q-card v-if="accountExists" class="account-card">
         <q-card-section class="resources-container">
             <div class="inline-section">
