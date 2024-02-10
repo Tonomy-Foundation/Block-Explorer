@@ -125,10 +125,12 @@ export default defineComponent({
 
     </div>
     <div v-if="mapDisplay && showMap" class="col-12 map-data-position overlap-map">
+        <h2>Both true</h2>
         <MapData :mapVisible="showMap" />
     </div>
     <div class="container-max-width" :class="{'container-margin' : !showMap}">
         <div v-if="mapDisplay && !showMap" class="col-12 map-data-position">
+            <h2>Map display and not show Map</h2>
             <MapData :mapVisible="showMap" />
         </div>
         <PriceChart class="price-box-position" :class="{'overlap-map' : mapDisplay && showMap}"/>
