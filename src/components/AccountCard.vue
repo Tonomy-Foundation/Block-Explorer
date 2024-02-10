@@ -443,7 +443,7 @@ export default defineComponent({
             <div class="inline-section">
                 <div class="row justify-center full-height items-center">
                     <div class="col-8"></div>
-                    <div class="text-title text-center">Sorry, the account {{ account }} could not be found.</div>
+                    <div class="text-title text-center">Sorry, the account {{ accountExists }} {{ account }} could not be found.</div>
                 </div>
             </div>
         </q-card-section>
