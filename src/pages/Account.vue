@@ -31,11 +31,11 @@ export default defineComponent({
 
         const tab = ref<string>((route.query['tab'] as string) || 'transactions');
         const account = computed(() => (route.params.account as string) || '');
-        const abi = computed(() => store.state.account.abi.abi);
+        const abi = computed(() => store?.state?.account?.abi?.abi);
         const tokenList = ref(api.getTokens(account.value));
         console.log('abi', abi, route.params.account);
         onMounted(async () => {
-            await store.dispatch('account/updateABI', route.params.account);
+            await store?.dispatch('account/updateABI', route.params.account);
         });
 
         watch([tab], () => {
