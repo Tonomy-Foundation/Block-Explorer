@@ -15,11 +15,12 @@ APP_NAME=OBE
 PRODUCER_BUCKET_URL=
 
  */
-
 import BaseChain, { baseUiConfiguration } from 'src/config/BaseChain';
 import { RpcEndpoint } from 'universal-authenticator-library';
+import {
+    getEmptyPriceChartData,
+} from 'src/api/price';
 import { PriceChartData } from 'src/types/PriceChartData';
-import { getEmptyPriceChartData } from 'src/api/price';
 import { Theme } from 'src/types/Theme';
 import { Token } from 'src/types';
 import { FooterLink } from 'src/types/UiCustomization';
@@ -36,27 +37,52 @@ const customHeaderSettings = {
 const customUiConfiguration = {
     ...baseUiConfiguration,
     headerSettings: customHeaderSettings,
+    accountPageSettings: {
+        hideCpuInfo: false,
+        hideNetInfo: false,
+        hideRamInfo: false,
+        hideRexInfo: true,
+        hideRefundingInfo: true,
+        hideDelegatedInfo: true,
+        hideLiquidInfo: true,
+
+        hideResourcesControl: false,
+        hideRexControl: false,
+
+        hideTransactionTab: false,
+        hideTokensTab: false,
+        hideKeysTab: false,
+        hideChildrenTab: false,
+        hideContractsTab: false,
+    },
 };
 
 const CHAIN_ID =
   '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
 const NAME = 'pangea-testnet';
-const DISPLAY = 'Pangea Testnet';
+const DISPLAY = 'Pangea testnet';
 const TOKEN = {
     symbol: 'SYS',
     precision: 4,
     amount: 0,
     contract: 'eosio.token',
 } as Token;
+
 const HYPERION_ENDPOINT = 'https://test.pangea.eosusa.io';
-const S3_PRODUCER_BUCKET = '#';
+
 const RPC_ENDPOINT = {
     protocol: 'https',
-    host: 'test.pangea.eosusa.io',
+    host: '#',
+    port: 443,
+};
+const FUEL_RPC_ENDPOINT = {
+    protocol: 'https',
+    host: '#',
     port: 443,
 };
 const API_ENDPOINT = 'https://blockchain-api-testnet.pangea.web4.world/';
-const DISPLAY_MAP = false;
+const S3_PRODUCER_BUCKET = '#';
+const DISPLAY_MAP = true;
 const THEME = {
     primary: '#67D7ED',
     secondary: '#E76773',
@@ -77,11 +103,10 @@ const THEME = {
     'color-select-box-background': '#e0dffb',
     'color-header-background': '#67D7ED',
     'color-header-border': '#8a65d41a',
-    'color-header-support-background': 'linear-gradient(180deg, #D2F3FA 0%, #D2F3FA 147.34%)',
+    'color-header-support-background': 'linear-gradient(180deg, #000000 0%, #ffffff 147.34%)',
     'color-graph-shadow': '#571aff28',
     'color-footer-background': '#67D7ED',
 };
-console.log(customUiConfiguration);
 
 export default class PangeaTestnet extends BaseChain {
     getName(): string {
@@ -105,7 +130,7 @@ export default class PangeaTestnet extends BaseChain {
     }
 
     getFuelRPCEndpoint(): RpcEndpoint | null {
-        return null;
+        return FUEL_RPC_ENDPOINT;
     }
 
     getApiEndpoint(): string {
@@ -129,11 +154,11 @@ export default class PangeaTestnet extends BaseChain {
     }
 
     getLargeLogoPath(): string {
-        return 'chains/telos/telos_logo.svg';
+        return 'chains/pangea/telos_logo.png';
     }
 
     getSmallLogoPath(): string {
-        return 'chains/telos/tlos.png';
+        return 'chains/pangea/tlos.png';
     }
 
     getMapDisplay(): boolean {
@@ -146,12 +171,8 @@ export default class PangeaTestnet extends BaseChain {
 
     getFiltersSupported(prop: string): boolean {
         if (prop === 'notified') {
-            return false;
+            return true;
         }
-        return true;
-    }
-
-    isTestnet(): boolean {
         return true;
     }
 
@@ -162,7 +183,6 @@ export default class PangeaTestnet extends BaseChain {
             { label: 'REPOSITORY', url: 'https://github.com/Tonomy-Foundation/Block-Explorer' },
         ];
     }
-
     getUiCustomization() {
         return customUiConfiguration;
     }

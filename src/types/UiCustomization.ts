@@ -19,6 +19,7 @@ export interface AccountPageSettings {
     hideRexInfo: boolean;
     hideRefundingInfo: boolean;
     hideDelegatedInfo: boolean;
+    hideLiquidInfo: boolean;
 
     hideResourcesControl: boolean;
     hideRexControl: boolean;
