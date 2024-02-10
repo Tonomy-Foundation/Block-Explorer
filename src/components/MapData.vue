@@ -19,7 +19,6 @@ export default defineComponent({
         const lastIrreversibleBlock = computed(
             (): number => store?.state?.chain.last_irreversible_block_num,
         );
-        console.log('mapVisible', HeadBlock);
         return {
             HeadBlock,
             HeadBlockProducer,

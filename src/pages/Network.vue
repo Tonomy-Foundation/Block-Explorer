@@ -82,7 +82,7 @@ export default defineComponent({
                 window.addEventListener('wheel', eventTimeout, false);
                 window.addEventListener('keyup', keyUpTimeout, false);
                 window.setInterval(() => {
-                    void store.dispatch('chain/updateBlockData');
+                    void store?.dispatch('chain/updateBlockData');
                 }, 2000);
             }
         });
@@ -90,7 +90,6 @@ export default defineComponent({
         onBeforeUnmount(() => {
             clearListeners();
         });
-        console.log('mapDisplay', mapDisplay, showMap.value);
         return {
             mapDisplay,
             showMap,
