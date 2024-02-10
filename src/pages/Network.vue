@@ -130,7 +130,7 @@ export default defineComponent({
     </div>
     <div class="container-max-width" :class="{'container-margin' : !showMap}">
         <h2>show map false</h2>
-        <div v-if="mapDisplay && !showMap" class="col-12 map-data-position">
+        <div v-if="mapDisplay && !showMap" class="col-12">
             <h2 >Both false </h2>
             <MapData :mapVisible="showMap" />
         </div>
