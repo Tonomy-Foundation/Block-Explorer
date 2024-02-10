@@ -31,7 +31,7 @@ export default defineComponent({
 
         const tab = ref<string>((route.query['tab'] as string) || 'transactions');
         const account = computed(() => (route.params.account as string) || '');
-        const abi = computed(() => store.state.account.abi.abi);
+        const abi = computed(() => store?.state?.account?.abi?.abi);
         const tokenList = ref(api.getTokens(account.value));
 
         // onMounted(async () => {

@@ -89,7 +89,7 @@ export default defineComponent({
 
         const staked = computed((): number => stakedRefund.value + stakedNET.value + stakedCPU.value);
 
-        const token = computed((): Token => store.state.chain.token);
+        const token = computed((): Token => store?.state?.chain?.token);
 
         const liquidNative = computed((): number => accountData.value?.core_liquid_balance?.value
             ? accountData.value.core_liquid_balance.value
