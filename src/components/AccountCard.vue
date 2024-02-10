@@ -236,11 +236,11 @@ export default defineComponent({
         onMounted(async () => {
             usdPrice.value = await chain.getUsdPrice();
             await loadAccountData();
-            await store.dispatch('account/updateRexData', {
-                account: props.account,
-            });
+            // await store.dispatch('account/updateRexData', {
+            //     account: props.account,
+            // });
             loadSystemToken();
-            void store.dispatch('chain/updateRamPrice');
+            // void store.dispatch('chain/updateRamPrice');
         });
 
         watch(
@@ -248,9 +248,9 @@ export default defineComponent({
             async () => {
                 resetBalances();
                 await loadAccountData();
-                await store.dispatch('account/updateRexData', {
-                    account: props.account,
-                });
+                // await store.dispatch('account/updateRexData', {
+                //     account: props.account,
+                // });
             },
         );
 
