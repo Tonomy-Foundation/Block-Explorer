@@ -149,11 +149,11 @@ export default class PangeaTestnet extends BaseChain {
     }
 
     getLargeLogoPath(): string {
-        return 'chains/pangea/pangea-logo.svg';
+        return 'chains/pangea/pangea-large-logo.svg';
     }
 
     getSmallLogoPath(): string {
-        return 'chains/pangea/pangea-logo.svg';
+        return 'chains/pangea/pangea-small-logo.svg';
     }
 
     getMapDisplay(): boolean {
