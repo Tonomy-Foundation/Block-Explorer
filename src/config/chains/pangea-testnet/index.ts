@@ -68,16 +68,11 @@ const TOKEN = {
     contract: 'eosio.token',
 } as Token;
 
-const HYPERION_ENDPOINT = 'https://test.pangea.eosusa.io';
+const HYPERION_ENDPOINT = 'http://test.pangea.eosusa.io';
 
 const RPC_ENDPOINT = {
-    protocol: 'https',
-    host: '#',
-    port: 443,
-};
-const FUEL_RPC_ENDPOINT = {
-    protocol: 'https',
-    host: '#',
+    protocol: 'http',
+    host: 'test.pangea.eosusa.io',
     port: 443,
 };
 const API_ENDPOINT = 'https://blockchain-api-testnet.pangea.web4.world/';
@@ -130,7 +125,7 @@ export default class PangeaTestnet extends BaseChain {
     }
 
     getFuelRPCEndpoint(): RpcEndpoint | null {
-        return FUEL_RPC_ENDPOINT;
+        return null;
     }
 
     getApiEndpoint(): string {
