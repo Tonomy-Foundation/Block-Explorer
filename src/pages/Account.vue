@@ -33,7 +33,7 @@ export default defineComponent({
         const account = computed(() => (route.params.account as string) || '');
         const abi = computed(() => store?.state?.account?.abi?.abi);
         const tokenList = ref(api.getTokens(account.value));
-        console.log('abi', abi, route.params.account);
+        console.log('abi', abi, route.params.account, store?.state?.account?.abi?.abi);
         onMounted(async () => {
             await store?.dispatch('account/updateABI', route.params.account);
         });

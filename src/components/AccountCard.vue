@@ -144,6 +144,7 @@ export default defineComponent({
                     timestamp: string;
                     trx_id: string;
                 };
+                console.log('creatoreData', creatorData);
                 creatingAccount.value = creatorData.creator;
                 createTime.value = creatorData.timestamp;
                 createTransaction.value = creatorData.trx_id;

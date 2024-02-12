@@ -26,34 +26,36 @@ export const actions: ActionTree<ChainStateInterface, StateInterface> = {
             const producerData: BP[] = (
         await axios.get(`${chain.getS3ProducerBucket()}/${lastKey}`)
       ).data as BP[];
-            let producers = (await api.getProducers()).rows;
-            producers = producers.filter(producer => producer.is_active === 1);
-            producers = producers?.map((data) => {
-                const bp = producerData?.find(
-                    producer => producer.owner === data.owner,
-                );
-                if (bp) {
-                    try {
-                        return {
-                            ...data,
-                            name: bp.org.candidate_name,
-                            location: bp.org.location.name,
-                        };
-                    } catch (error) {
-                        return data;
-                    }
-                } else {
-                    return {
-                        ...data,
-                        name: data.owner,
-                        location: '',
-                    };
-                }
-            });
-            producerData.sort((a, b) => b.total_votes - a.total_votes);
-            producers.sort((a, b) => b.total_votes - a.total_votes);
-            commit('setProducers', producers);
-            commit('setBpList', producerData);
+            const producers = (await api.getProducers()).rows;
+            console.log('producser', producers);
+            // producers = producers.filter(producer => producer.is_active === 1);
+            // producers = producers?.map((data) => {
+            //     const bp = producerData?.find(
+            //         producer => producer.owner === data.owner,
+            //     );
+            //     if (bp) {
+            //         try {
+            //             return {
+            //                 ...data,
+            //                 name: bp.org.candidate_name,
+            //                 location: bp.org.location.name,
+            //             };
+            //         } catch (error) {
+            //             return data;
+            //         }
+            //     } else {
+            //         return {
+            //             ...data,
+            //             name: data.owner,
+            //             location: '',
+            //         };
+            //     }
+            // });
+            console.log('producer data', producerData);
+            // producerData.sort((a, b) => b.total_votes - a.total_votes);
+            // producers.sort((a, b) => b.total_votes - a.total_votes);
+            // commit('setProducers', producers);
+            // commit('setBpList', producerData);
         } catch (err) {
             console.error(err);
         }
@@ -61,7 +63,7 @@ export const actions: ActionTree<ChainStateInterface, StateInterface> = {
     async updateBlockData({ commit }) {
         try {
             const info = await api.getInfo();
-            console.log('info,', info);
+            console.log('headinfo,', info);
             commit('setHead_block_num', info.head_block_num);
             commit('setLIB', info.last_irreversible_block_num);
             commit('setHead_block_producer', info.head_block_producer);

@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref, computed, onMounted } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import { useStore } from 'src/store';
 import ViewTransaction from 'src/components/ViewTransanction.vue';
 
@@ -53,10 +53,10 @@ export default defineComponent({
             }
         }
 
-        onMounted(async () => {
-            actor.value = await store.state.account.user.getAccountName();
-            permission.value = store.state.account.accountPermission;
-        });
+        // onMounted(async () => {
+        //     actor.value = await store.state.account.user.getAccountName();
+        //     permission.value = store.state.account.accountPermission;
+        // });
 
         return {
             action,
