@@ -29,7 +29,6 @@ export default defineComponent({
 </script>
 
 <template>
-<h2>Map data</h2>
 <div class="row full-width text-center justify-center actor-font" :class="{'text-grey-3' : mapVisible}">
     <div class="col-3">
         <div class="row">
