@@ -51,7 +51,7 @@ export default defineComponent({
         }
 
         async function stake() {
-            void store.dispatch('account/resetTransaction');
+            void store?.dispatch('account/resetTransaction');
             if (
                 stakeTokens.value === '0' ||
                 Number(stakeTokens.value) >=
@@ -59,7 +59,7 @@ export default defineComponent({
             ) {
                 return;
             }
-            await store.dispatch('account/stakeRex', {
+            await store?.dispatch('account/stakeRex', {
                 amount: stakeTokens.value,
             });
 

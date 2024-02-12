@@ -16,7 +16,7 @@ export default defineComponent({
         const tab = ref<string>((route.query['tab'] as string) || 'actions');
         onMounted(() => {
             store.commit('transaction/setTransactionId', route.params.transaction);
-            void store.dispatch('transaction/updateTransaction');
+            void store?.dispatch('transaction/updateTransaction');
         });
         watch([tab], () => {
             void router.push({

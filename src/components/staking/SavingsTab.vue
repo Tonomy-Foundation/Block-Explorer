@@ -50,7 +50,7 @@ export default defineComponent({
         }
 
         async function moveToSavings() {
-            void store.dispatch('account/resetTransaction');
+            void store?.dispatch('account/resetTransaction');
             if (
                 toSavingAmount.value === '0' ||
                 toSavingAmount.value === '' ||
@@ -58,7 +58,7 @@ export default defineComponent({
             ) {
                 return;
             }
-            await store.dispatch('account/moveToSavings', {
+            await store?.dispatch('account/moveToSavings', {
                 amount: toSavingAmount.value || '0',
             });
 
@@ -68,7 +68,7 @@ export default defineComponent({
         }
 
         async function moveFromSavings() {
-            void store.dispatch('account/resetTransaction');
+            void store?.dispatch('account/resetTransaction');
             if (
                 fromSavingAmount.value === '0' ||
                 fromSavingAmount.value === '' ||
@@ -76,7 +76,7 @@ export default defineComponent({
             ) {
                 return;
             }
-            await store.dispatch('account/moveFromSavings', {
+            await store?.dispatch('account/moveFromSavings', {
                 amount: fromSavingAmount.value || '0',
             });
 

@@ -35,7 +35,7 @@ export default defineComponent({
         };
 
         const clearAccount = (): void => {
-            void store.dispatch('account/logout');
+            void store?.dispatch('account/logout');
         };
         return {
             account,

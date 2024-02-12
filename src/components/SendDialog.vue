@@ -48,7 +48,7 @@ export default defineComponent({
         );
 
         const sendTransaction = async (): Promise<void> => {
-            void store.dispatch('account/resetTransaction');
+            void store?.dispatch('account/resetTransaction');
             const actionAccount = sendToken.value?.contract;
             const data = {
                 from: account.value,
@@ -56,17 +56,17 @@ export default defineComponent({
                 quantity: `${sendAmount.value} ${sendToken.value?.symbol}`,
                 memo: memo.value,
             };
-            await store.dispatch('account/sendAction', {
+            await store?.dispatch('account/sendAction', {
                 account: actionAccount,
                 data,
                 name: 'transfer',
             });
-            void store.dispatch('account/loadAccountData');
+            void store?.dispatch('account/loadAccountData');
             context.emit('update-token-balances');
         };
 
         const setDefaults = () => {
-            void store.dispatch('account/resetTransaction');
+            void store?.dispatch('account/resetTransaction');
             if (availableTokens.value.length > 0) {
                 sendToken.value = availableTokens.value.find(token => (
                     token.symbol === sendToken.value?.symbol &&
@@ -94,7 +94,7 @@ export default defineComponent({
                 params: { transaction: transactionId.value },
             });
             router.go(0);
-            void store.dispatch('account/resetTransaction');
+            void store?.dispatch('account/resetTransaction');
         };
 
         const formatDec = () => {

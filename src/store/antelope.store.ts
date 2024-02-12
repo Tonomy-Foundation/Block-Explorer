@@ -34,15 +34,15 @@ export function useAntelopeStore(): AntelopeStore {
             isLoading: (funcname: string) => getters['resources/isLoading'](funcname),
 
             // actions
-            updateResources: (payload: {account?: string, force?:boolean}) => store.dispatch('resources/updateResources', payload),
-            updateSelfStaked: (account: string) => store.dispatch('resources/updateSelfStaked', account),
-            updateDelegatedToOthers: (account: string) => store.dispatch('resources/updateDelegatedToOthers', account),
-            delegateResources: (order: DelegatedResources) => store.dispatch('resources/delegateResources', order),
-            undelegateResources: (order: DelegatedResources) => store.dispatch('resources/undelegateResources', order),
+            updateResources: (payload: {account?: string, force?:boolean}) => store?.dispatch('resources/updateResources', payload),
+            updateSelfStaked: (account: string) => store?.dispatch('resources/updateSelfStaked', account),
+            updateDelegatedToOthers: (account: string) => store?.dispatch('resources/updateDelegatedToOthers', account),
+            delegateResources: (order: DelegatedResources) => store?.dispatch('resources/delegateResources', order),
+            undelegateResources: (order: DelegatedResources) => store?.dispatch('resources/undelegateResources', order),
         },
         state,
         dispatch: ((type: string, payload?: unknown, options?: DispatchOptions): Promise<unknown> =>
-            store.dispatch(type, payload, options)),
+            store?.dispatch(type, payload, options)),
         commit: ((type: string, payload?: unknown, options?: CommitOptions): void =>
             store.commit(type, payload, options)),
     };

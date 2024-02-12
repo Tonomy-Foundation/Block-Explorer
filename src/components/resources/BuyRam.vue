@@ -71,7 +71,7 @@ export default defineComponent({
         }
 
         async function buy() {
-            void store.dispatch('account/resetTransaction');
+            void store?.dispatch('account/resetTransaction');
             if (buyOption.value === buyOptions[0]) {
                 if (
                     buyAmount.value === '0' ||
@@ -81,7 +81,7 @@ export default defineComponent({
                 ) {
                     return;
                 }
-                await store.dispatch('account/buyRam', {
+                await store?.dispatch('account/buyRam', {
                     amount: buyAmount.value + ' ' + symbol.value,
                     receivingAccount: receivingAccount.value,
                 });
@@ -95,7 +95,7 @@ export default defineComponent({
                 ) {
                     return;
                 }
-                await store.dispatch('account/buyRamBytes', {
+                await store?.dispatch('account/buyRamBytes', {
                     amount: buyAmount.value,
                     receivingAccount: receivingAccount.value,
                 });

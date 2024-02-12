@@ -16,9 +16,9 @@ export default defineComponent({
                 const data = await api.getAccount(store.state.account.accountName);
                 store.commit('account/setAccountData', data);
             }
-            await store.dispatch('chain/updateBpList');
+            await store?.dispatch('chain/updateBpList');
             window.setInterval(() => {
-                void store.dispatch('chain/updateBlockData');
+                void store?.dispatch('chain/updateBlockData');
             }, 2000);
         });
     },

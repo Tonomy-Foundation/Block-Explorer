@@ -137,7 +137,7 @@ export default defineComponent({
         }
         async function sendVoteTransaction() {
             if (accountValid.value) {
-                await store.dispatch('account/sendVoteTransaction');
+                await store?.dispatch('account/sendVoteTransaction');
                 openTransaction.value = true;
                 await getVoteWeight();
             } else {

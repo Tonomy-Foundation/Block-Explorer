@@ -25,8 +25,8 @@ export const actions: ActionTree<ResourcesStateInterface, StateInterface> = {
             ) {
                 // dispatch updateSelfStaked and updateDelegatedToOthers actions in parallel awaiting for both to finish
                 await Promise.all([
-                    store.dispatch('updateSelfStaked', currentAccount),
-                    store.dispatch('updateDelegatedToOthers', currentAccount),
+                    store?.dispatch('updateSelfStaked', currentAccount),
+                    store?.dispatch('updateDelegatedToOthers', currentAccount),
                 ]);
                 store.commit('setCurrentAccount', currentAccount);
             }
@@ -49,7 +49,7 @@ export const actions: ActionTree<ResourcesStateInterface, StateInterface> = {
                 store.state.forceUpdate
             ) {
                 // dispatch loadAccountData action from account module
-                await store.dispatch('account/loadAccountData', account, { root: true });
+                await store?.dispatch('account/loadAccountData', account, { root: true });
             }
 
             const accountData = store.rootState.account.data;

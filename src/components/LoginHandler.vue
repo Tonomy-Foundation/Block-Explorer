@@ -26,7 +26,7 @@ export default defineComponent({
                 const ual: Authenticator = authenticators.find(
                     a => a.getName() === ualName,
                 );
-                void store.dispatch('account/login', {
+                void store?.dispatch('account/login', {
                     account: storedAccount,
                     authenticator: ual,
                 });
