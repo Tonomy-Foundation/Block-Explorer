@@ -133,78 +133,78 @@ export const actions: ActionTree<ResourcesStateInterface, StateInterface> = {
             commit('unsetLoading', 'updateDelegatedToOthers');
         }
     },
-    async delegateResources({ commit, dispatch }, order: DelegatedResources) {
-        const { from, to, net_weight, cpu_weight } = order;
+    // async delegateResources({ commit, dispatch }, order: DelegatedResources) {
+    //     const { from, to, net_weight, cpu_weight } = order;
 
-        // create two actions, one for the delegatebw and one for the transfer
-        try {
-            commit('setLoading', 'delegateResources');
+    //     // create two actions, one for the delegatebw and one for the transfer
+    //     try {
+    //         commit('setLoading', 'delegateResources');
 
-            // calculate the total amount
-            const amount = Number(net_weight ?? '0') + Number(cpu_weight ?? '0');
+    //         // calculate the total amount
+    //         const amount = Number(net_weight ?? '0') + Number(cpu_weight ?? '0');
 
-            const actions = [
-                {
-                    account: 'eosio',
-                    name: 'delegatebw',
-                    authorization: [
-                        {
-                            actor: from,
-                            permission: this.state.account.accountPermission,
-                        },
-                    ],
-                    data: {
-                        from,
-                        receiver: to,
-                        stake_net_quantity: net_weight,
-                        stake_cpu_quantity: cpu_weight,
-                        transfer: false,
-                        amount,
-                    },
-                },
-            ];
+    //         const actions = [
+    //             {
+    //                 account: 'eosio',
+    //                 name: 'delegatebw',
+    //                 authorization: [
+    //                     {
+    //                         actor: from,
+    //                         permission: this.state.account.accountPermission,
+    //                     },
+    //                 ],
+    //                 data: {
+    //                     from,
+    //                     receiver: to,
+    //                     stake_net_quantity: net_weight,
+    //                     stake_cpu_quantity: cpu_weight,
+    //                     transfer: false,
+    //                     amount,
+    //                 },
+    //             },
+    //         ];
 
-            await dispatch('account/sendTransaction', actions, { root: true });
-            await dispatch('updateResources', { account:from, force: true });
-        } catch (e) {
-            commit('setTransactionError', e);
-        } finally {
-            commit('unsetLoading', 'delegateResources');
-        }
-    },
-    async undelegateResources({ commit, dispatch }, order: DelegatedResources) {
-        const { from, to, net_weight, cpu_weight } = order;
+    //         await dispatch('account/sendTransaction', actions, { root: true });
+    //         await dispatch('updateResources', { account:from, force: true });
+    //     } catch (e) {
+    //         commit('setTransactionError', e);
+    //     } finally {
+    //         commit('unsetLoading', 'delegateResources');
+    //     }
+    // },
+    // async undelegateResources({ commit, dispatch }, order: DelegatedResources) {
+    //     const { from, to, net_weight, cpu_weight } = order;
 
-        // create two actions, one for the delegatebw and one for the transfer
-        try {
-            commit('setLoading', 'undelegateResources');
+    //     // create two actions, one for the delegatebw and one for the transfer
+    //     try {
+    //         commit('setLoading', 'undelegateResources');
 
-            const actions = [
-                {
-                    account: 'eosio',
-                    name: 'undelegatebw',
-                    authorization: [
-                        {
-                            actor: from,
-                            permission: 'active',
-                        },
-                    ],
-                    data: {
-                        from,
-                        receiver: to,
-                        unstake_net_quantity: net_weight,
-                        unstake_cpu_quantity: cpu_weight,
-                    },
-                },
-            ];
-            await dispatch('account/sendTransaction', actions, { root: true });
-            await dispatch('updateResources', { account:from, force: true });
-        } catch (e) {
-            console.error('Error', e);
-        } finally {
-            commit('unsetLoading', 'undelegateResources');
-        }
-    },
+    //         const actions = [
+    //             {
+    //                 account: 'eosio',
+    //                 name: 'undelegatebw',
+    //                 authorization: [
+    //                     {
+    //                         actor: from,
+    //                         permission: 'active',
+    //                     },
+    //                 ],
+    //                 data: {
+    //                     from,
+    //                     receiver: to,
+    //                     unstake_net_quantity: net_weight,
+    //                     unstake_cpu_quantity: cpu_weight,
+    //                 },
+    //             },
+    //         ];
+    //         await dispatch('account/sendTransaction', actions, { root: true });
+    //         await dispatch('updateResources', { account:from, force: true });
+    //     } catch (e) {
+    //         console.error('Error', e);
+    //     } finally {
+    //         commit('unsetLoading', 'undelegateResources');
+    //     }
+    // },
 
     // reset interlad data when there's no logged in account
     resetResources({ commit }) {
