@@ -46,12 +46,12 @@ export default defineComponent({
         }
 
         async function unstake() {
-            void store?.dispatch('account/resetTransaction');
+            void store.dispatch('account/resetTransaction');
             // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
             if ((unstakeInput.value as any).hasError) {
                 return;
             }
-            await store?.dispatch('account/unstakeRex', {
+            await store.dispatch('account/unstakeRex', {
                 amount: unstakeTokens.value,
             });
 

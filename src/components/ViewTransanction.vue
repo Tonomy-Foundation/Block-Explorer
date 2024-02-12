@@ -19,7 +19,7 @@ export default defineComponent({
         const transactionE = computed(() => store.state.account.TransactionError);
 
         const reset = () => {
-            void store?.dispatch('account/resetTransaction');
+            void store.dispatch('account/resetTransaction');
         };
 
         const navToTransaction = async () => {
@@ -28,7 +28,7 @@ export default defineComponent({
                 params: { transaction: Id.value },
             });
             router.go(0);
-            void store?.dispatch('account/resetTransaction');
+            void store.dispatch('account/resetTransaction');
         };
 
         return {

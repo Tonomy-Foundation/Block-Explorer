@@ -39,7 +39,7 @@ export default defineComponent({
                 .replace(/[^0-9.]/g, '');
         }
         async function sell() {
-            void store?.dispatch('account/resetTransaction');
+            void store.dispatch('account/resetTransaction');
             if (
                 sellAmount.value === '0' ||
                 !ramAvailable.value ||
@@ -47,7 +47,7 @@ export default defineComponent({
             ) {
                 return;
             }
-            await store?.dispatch('account/sellRam', {
+            await store.dispatch('account/sellRam', {
                 amount: sellAmount.value,
             });
 

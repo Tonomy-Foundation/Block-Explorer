@@ -54,7 +54,7 @@ export default defineComponent({
         }
 
         async function stake() {
-            void store?.dispatch('account/resetTransaction');
+            void store.dispatch('account/resetTransaction');
             if (
                 (cpuTokens.value === '0' && netTokens.value === '0') ||
                 Number(cpuTokens.value) >= Number(cpuWeight.value) ||
@@ -63,7 +63,7 @@ export default defineComponent({
                 return;
             }
 
-            await store?.dispatch('account/stakeCpuNetRex', {
+            await store.dispatch('account/stakeCpuNetRex', {
                 cpuAmount: cpuTokens.value || '0',
                 netAmount: netTokens.value || '0',
             });
@@ -74,11 +74,11 @@ export default defineComponent({
         }
 
         async function unstake() {
-            void store?.dispatch('account/resetTransaction');
+            void store.dispatch('account/resetTransaction');
             if (cpuWithdraw.value === '0' && netWithdraw.value === '0') {
                 return;
             }
-            await store?.dispatch('account/unstakeCpuNetRex', {
+            await store.dispatch('account/unstakeCpuNetRex', {
                 cpuAmount: cpuWithdraw.value || '0',
                 netAmount: netWithdraw.value || '0',
             });

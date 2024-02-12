@@ -53,8 +53,8 @@ export default defineComponent({
         const transactionError = ref<string>(null);
 
         const withdrawRexFund = async () => {
-            await store?.dispatch('account/unstakeRexFund', { amount: rexfund.value });
-            void store?.dispatch('account/updateRexData', {
+            await store.dispatch('account/unstakeRexFund', { amount: rexfund.value });
+            void store.dispatch('account/updateRexData', {
                 account: store.state.account.accountName,
             });
         };

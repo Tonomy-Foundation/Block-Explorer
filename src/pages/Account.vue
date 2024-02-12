@@ -35,7 +35,7 @@ export default defineComponent({
         const tokenList = ref(api.getTokens(account.value));
         console.log('abi', abi, route.params.account, store?.state?.account?.abi?.abi);
         onMounted(async () => {
-            await store?.dispatch('account/updateABI', route.params.account);
+            await store.dispatch('account/updateABI', route.params.account);
         });
 
         watch([tab], () => {

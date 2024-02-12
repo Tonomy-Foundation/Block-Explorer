@@ -27,7 +27,7 @@ export default defineComponent({
             const authenticator = authenticators[idx];
             error.value = null;
             try {
-                await store?.dispatch('account/login', {
+                await store.dispatch('account/login', {
                     account: account.value,
                     authenticator,
                 });
