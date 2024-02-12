@@ -68,10 +68,10 @@ const TOKEN = {
     contract: 'eosio.token',
 } as Token;
 
-const HYPERION_ENDPOINT = 'http://test.pangea.eosusa.io';
+const HYPERION_ENDPOINT = 'https://test.pangea.eosusa.io';
 
 const RPC_ENDPOINT = {
-    protocol: 'http',
+    protocol: 'https',
     host: 'test.pangea.eosusa.io',
     port: 443,
 };
