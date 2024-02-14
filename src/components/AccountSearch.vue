@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent, ref, watch, onMounted } from 'vue';
-import { OptionsObj, TableByScope } from 'src/types';
+import { OptionsObj } from 'src/types';
 import { api } from 'src/api';
 import { useQuasar } from 'quasar';
 
@@ -81,48 +81,14 @@ export default defineComponent({
         async function searchAccounts(value: string): Promise<OptionsObj[]> {
             try {
                 const results = [] as OptionsObj[];
-                const request = {
-                    code: 'eosio',
-                    limit: 5,
-                    lower_bound: cleanSearchInput(value),
-                    table: 'userres',
-                    upper_bound: value.padEnd(12, 'z'),
-                };
-                const accounts = await api.getTableByScope(request);
 
-                // get table by scope for userres does not include system account
-                if (value.includes('eosio')) {
-                    accounts.unshift({
-                        payer: 'eosio',
-                    } as TableByScope);
-                }
-
-                if (accounts.length > 0) {
+                const accountsRes = await api.getAccountByScope(cleanSearchInput(value).toString());
+                if(accountsRes) {
                     results.push({
-                        label: 'Accounts',
-                        to: '',
-                        isHeader: true,
+                        label: cleanSearchInput(value),
+                        to: cleanSearchInput(value),
+                        isHeader: false,
                     });
-
-                    accounts.forEach((user) => {
-                        if (user.payer.includes(value)) {
-                            results.push({
-                                label: user.payer,
-                                to: `${user.payer}`,
-                                isHeader: false,
-                            });
-                        }
-                    });
-
-                    // if has only one result and it's the one that is on the inputValue, emit update
-                    if (props.emitUpdateOnInput) {
-                        if (results.length === 2 && results[1].label === inputValue.value) {
-                            isError.value = false;
-                            context.emit('update:modelValue', inputValue.value);
-                        } else {
-                            isError.value = true;
-                        }
-                    }
                 } else {
                     isError.value = true;
                 }

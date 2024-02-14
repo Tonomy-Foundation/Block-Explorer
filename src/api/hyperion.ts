@@ -221,6 +221,13 @@ export const getTableByScope = async function (
     return (response.data as {rows:TableByScope[]}).rows;
 };
 
+export const getAccountByScope = async function (
+    account_name: string,
+): Promise<Action[]> {
+    const response = await hyperion.post('v1/chain/get_account', { account_name });
+    return response.data as Action[];
+};
+
 export const getBlock = async function (block: string): Promise<Block> {
     controller.abort();
     const response = await hyperion.post('v1/chain/get_block', {
