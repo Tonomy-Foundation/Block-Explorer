@@ -218,16 +218,13 @@ export const getPermissionLinks = async function (
 export const getTableByScope = async function (
     data: unknown,
 ): Promise<TableByScope[]> {
-    console.log('data', data);
     const response = await hyperion.post('v1/chain/get_table_by_scope', data);
-    console.log('response', response);
     return (response.data as {rows:TableByScope[]}).rows;
 };
 
 export const getAccountByScope = async function (
     data: unknown,
 ): Promise<Action[]> {
-    console.log('data', data);
     const response = await api.post('v1/chain/get_account', data);
     return response.data as Action[];
 };
