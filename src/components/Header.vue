@@ -68,7 +68,7 @@ export default defineComponent({
 
                         <ChainsMenu v-if="showMultichainSelector"/>
                     </div>
-                    <div v-if="isTestnet" class="testnet-text">Testnet</div>
+                    <div v-if="isTestnet" class="testnet-text">TESTNET</div>
                 </div>
             </div>
         </div>
