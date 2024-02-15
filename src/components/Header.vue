@@ -55,7 +55,7 @@ export default defineComponent({
 <template>
 <div class="header-background">
     <div class="row text-center q-pt-sm justify-between q-pt-md">
-        <div class="logo-container col-xs-3 col-sm-2 col-md-2 col-lg-2">
+        <div class="logo-container col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
                 <div class="logo-header-container">
                     <div class="logo-chain-selector-container">
@@ -146,8 +146,8 @@ export default defineComponent({
 
 .logo
   vertical-align: middle
-  width: 104px
-  height:70px
+  width: 80px
+  height:65px
   object-fit: contain
 
 .logo-text
