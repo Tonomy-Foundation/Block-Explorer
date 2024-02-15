@@ -62,13 +62,13 @@ export default defineComponent({
                         <a class="float-left" href="/">
                             <img v-if="isLarge" class="logo" :src="largeLogoPath">
                             <img v-else class="logo-token" :src="smallLogoPath">
-                            <p className="logo-text">Pangea</p>
+                            <p className="logo-text">{{logoText}}</p>
 
                         </a>
 
                         <ChainsMenu v-if="showMultichainSelector"/>
                     </div>
-                    <div v-if="isTestnet" class="testnet-text">{{logoText}}</div>
+                    <div v-if="isTestnet" class="testnet-text">Testnet</div>
                 </div>
             </div>
         </div>
