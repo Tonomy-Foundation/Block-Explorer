@@ -256,7 +256,7 @@ export default defineComponent({
 
 <style lang="sass">
 .search-input
-  background: rgba(255, 255, 255, 0.15)
+  background: rgba(255, 255, 255, 0.45)
   border-radius: 4px
 
 .search-input .q-select__dropdown-icon

@@ -28,6 +28,7 @@ export default defineComponent({
         const isTestnet = ref(getChain().isTestnet());
         const smallLogoPath = ref(getChain().getSmallLogoPath());
         const largeLogoPath = ref(getChain().getLargeLogoPath());
+        const logoText = ref(getChain().getDisplay());
 
         const network = useRouteDataNetwork();
 
@@ -45,6 +46,7 @@ export default defineComponent({
             smallLogoPath,
             largeLogoPath,
             isTestnet,
+            logoText,
         };
     },
 });
@@ -60,10 +62,13 @@ export default defineComponent({
                         <a class="float-left" href="/">
                             <img v-if="isLarge" class="logo" :src="largeLogoPath">
                             <img v-else class="logo-token" :src="smallLogoPath">
+                            <p className="logo-text">Pangea</p>
+
                         </a>
+
                         <ChainsMenu v-if="showMultichainSelector"/>
                     </div>
-                    <div v-if="isTestnet" class="testnet-text">TESTNET</div>
+                    <div v-if="isTestnet" class="testnet-text">{{logoText}}</div>
                 </div>
             </div>
         </div>
@@ -140,9 +145,18 @@ export default defineComponent({
         margin-right: 4px
 
 .logo
+  vertical-align: middle
   width: 104px
-  height:40px
+  height:70px
   object-fit: contain
+
+.logo-text
+  display: inline-block
+  vertical-align: middle
+  margin-bottom: 0px
+  font-size: 38px
+  color: var(--q-color-header-text)
+  font-weight: 500
 
 .logo-token
   width: 40px
