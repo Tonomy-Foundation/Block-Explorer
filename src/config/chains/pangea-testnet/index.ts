@@ -60,7 +60,7 @@ const customUiConfiguration = {
 const CHAIN_ID =
   '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
 const NAME = 'pangea-testnet';
-const DISPLAY = 'Pangea testnet';
+const DISPLAY = 'Pangea';
 const TOKEN = {
     symbol: 'SYS',
     precision: 4,
@@ -84,8 +84,8 @@ const API_ENDPOINT = 'https://blockchain-api-testnet.pangea.web4.world/';
 const S3_PRODUCER_BUCKET = '#';
 const DISPLAY_MAP = true;
 const THEME = {
-    primary: '#67D7ED',
-    secondary: '#E76773',
+    primary: '#007bff',
+    secondary: '#FF505F',
     accent: '#9C27B0',
     dark: '#1d1d1d',
     positive: '#21BA45',
@@ -101,11 +101,11 @@ const THEME = {
     'color-progress-gradient': '#571aff',
     'color-producer-card-background': '#f5f4fe',
     'color-select-box-background': '#e0dffb',
-    'color-header-background': '#67D7ED',
+    'color-header-background': '#007bff',
     'color-header-border': '#8a65d41a',
-    'color-header-support-background': 'linear-gradient(180deg, #000000 0%, #ffffff 147.34%)',
+    'color-header-support-background': 'linear-gradient(180deg, #313938 0%, #313938 147.34%)',
     'color-graph-shadow': '#571aff28',
-    'color-footer-background': '#67D7ED',
+    'color-footer-background': '#007bff',
 };
 
 export default class PangeaTestnet extends BaseChain {
@@ -154,11 +154,11 @@ export default class PangeaTestnet extends BaseChain {
     }
 
     getLargeLogoPath(): string {
-        return 'chains/pangea/telos_logo.png';
+        return 'chains/pangea-testnet/pangea-large-logo.png';
     }
 
     getSmallLogoPath(): string {
-        return 'chains/pangea/tlos.png';
+        return 'chains/pangea-testnet/pangea-large-logo.png';
     }
 
     getMapDisplay(): boolean {

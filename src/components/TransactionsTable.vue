@@ -911,6 +911,8 @@ export default defineComponent({
 
 <style lang="sass">
 $medium:920px
+.trx-table
+  margin-top: 36px
 
 .trx-table--title
   font-size: 22.75px
