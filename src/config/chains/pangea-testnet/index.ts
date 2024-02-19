@@ -62,8 +62,8 @@ const CHAIN_ID =
 const NAME = 'pangea-testnet';
 const DISPLAY = 'Pangea';
 const TOKEN = {
-    symbol: 'SYS',
-    precision: 4,
+    symbol: 'LEOS',
+    precision: 6,
     amount: 0,
     contract: 'eosio.token',
 } as Token;
