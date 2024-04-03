@@ -9,7 +9,7 @@ import { Token } from 'src/types';
 import { FooterLink } from 'src/types/UiCustomization';
 
 const customHeaderSettings = {
-    hideLoginHandler: true,
+    hideLoginHandler: false,
     hideNetworkTab: false,
     hideWalletTab: true,
     hideVoteTab: true,
@@ -54,11 +54,6 @@ const TOKEN_PRICE = 0.012;
 const HYPERION_ENDPOINT = 'https://pangea.eosusa.io';
 
 const RPC_ENDPOINT = {
-    protocol: 'https',
-    host: '#',
-    port: 443,
-};
-const FUEL_RPC_ENDPOINT = {
     protocol: 'https',
     host: '#',
     port: 443,
@@ -113,7 +108,7 @@ export default class Pangea extends BaseChain {
     }
 
     getFuelRPCEndpoint(): RpcEndpoint | null {
-        return FUEL_RPC_ENDPOINT;
+        return null;
     }
 
     getApiEndpoint(): string {
