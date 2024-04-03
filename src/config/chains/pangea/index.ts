@@ -42,8 +42,8 @@ const customUiConfiguration = {
 
 const CHAIN_ID =
     '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
-const NAME = 'pangea-testnet';
-const DISPLAY = 'Pangea Testnet';
+const NAME = 'pangea';
+const DISPLAY = 'Pangea';
 const TOKEN = {
     symbol: 'LEOS',
     precision: 6,
@@ -51,7 +51,7 @@ const TOKEN = {
     contract: 'eosio.token',
 } as Token;
 const TOKEN_PRICE = 0.012;
-const HYPERION_ENDPOINT = 'https://test.pangea.eosusa.io';
+const HYPERION_ENDPOINT = 'https://pangea.eosusa.io';
 
 const RPC_ENDPOINT = {
     protocol: 'https',
@@ -63,7 +63,7 @@ const FUEL_RPC_ENDPOINT = {
     host: '#',
     port: 443,
 };
-const API_ENDPOINT = 'https://blockchain-api-testnet.pangea.web4.world/';
+const API_ENDPOINT = 'https://blockchain-api.pangea.web4.world/';
 const S3_PRODUCER_BUCKET = '#';
 const DISPLAY_MAP = true;
 const THEME = {
