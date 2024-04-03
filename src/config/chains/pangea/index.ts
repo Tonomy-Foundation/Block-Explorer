@@ -91,7 +91,7 @@ const THEME = {
     'color-footer-background': '#007bff',
 };
 
-export default class PangeaTestnet extends BaseChain {
+export default class Pangea extends BaseChain {
     getName(): string {
         return NAME;
     }
