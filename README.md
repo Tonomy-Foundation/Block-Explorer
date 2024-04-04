@@ -103,7 +103,7 @@ yarn lint
 ```bash
 yarn build
 cd dist/spa
-quasar serve
+quasar dev
 ```
 app running at localhost:4000
 
