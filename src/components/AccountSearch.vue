@@ -82,7 +82,7 @@ export default defineComponent({
             try {
                 const results = [] as OptionsObj[];
 
-                const accountsRes = await api.getAccountByScope(cleanSearchInput(value).toString());
+                const accountsRes = await api.getAccount(cleanSearchInput(value).toString());
                 if(accountsRes) {
                     results.push({
                         label: cleanSearchInput(value),
@@ -92,6 +92,7 @@ export default defineComponent({
                 } else {
                     isError.value = true;
                 }
+
                 return results;
             } catch (error) {
                 isError.value = true;

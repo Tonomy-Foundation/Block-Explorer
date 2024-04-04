@@ -55,10 +55,10 @@ const HYPERION_ENDPOINT = 'https://pangea.eosusa.io';
 
 const RPC_ENDPOINT = {
     protocol: 'https',
-    host: '#',
+    host: 'pangea.eosusa.io',
     port: 443,
 };
-const API_ENDPOINT = 'https://blockchain-api.pangea.web4.world/';
+const API_ENDPOINT = 'https://pangea.eosusa.io';
 const S3_PRODUCER_BUCKET = '#';
 const DISPLAY_MAP = true;
 const THEME = {

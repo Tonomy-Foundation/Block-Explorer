@@ -41,19 +41,11 @@ export default defineComponent({
 
         watch(inputValue, onInput);
 
-        async function searchAccounts(value: string): Promise<OptionsObj[]> {
+        function searchAccounts(value: string): OptionsObj[] {
             try {
                 const results = [] as OptionsObj[];
-                const request = {
-                    code: 'eosio',
-                    limit: 5,
-                    lower_bound: cleanSearchInput(value),
-                    table: 'userres',
-                    upper_bound: value.padEnd(12, 'z'),
-                };
-                const accounts = await api.getTableByScope(request);
+                const accounts = [{ payer: cleanSearchInput(value) }] as TableByScope[];
 
-                // get table by scope for userres does not include system account
                 if (value.includes('eosio')) {
                     accounts.unshift({
                         payer: 'eosio',
