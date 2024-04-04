@@ -38,6 +38,14 @@ const name = chain.getName();
 const url =
   `https://raw.githubusercontent.com/telosnetwork/token-list/main/tokens.${name}.json`;
 
+const tokenList =[{
+    name: 'LEOS',
+    symbol: 'LEOS',
+    contract: 'eosio.token',
+    precision: 6,
+    logo: 'https://assets-global.website-files.com/65b7ac78e388a1fbc41df504/65b88c2c27b1437cd06c3249_logo2.png',
+}];
+
 const tokenListPromise = fetch(url)
     .then(response => response.text())
     .then((fileContent: string) => JSON.parse(fileContent) as { account: string }[])
@@ -101,7 +109,7 @@ export const getTokens = async function (address?: string): Promise<Token[]> {
         const response = await hyperion.get('v2/state/get_tokens', {
             params: { account: address },
         });
-        const tokens = await tokenListPromise;
+        const tokens = tokenList;
         const balances = (response.data as {tokens:Token[]}).tokens;
         return balances.map((token:Token) => {
             const tk = tokens.find((t:Token) => t.symbol === token.symbol) as Token;
