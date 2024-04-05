@@ -11,7 +11,7 @@ import { FooterLink } from 'src/types/UiCustomization';
 const customHeaderSettings = {
     hideLoginHandler: false,
     hideNetworkTab: false,
-    hideWalletTab: true,
+    hideWalletTab: false,
     hideVoteTab: true,
     hideProposalTab: false,
 };
@@ -21,16 +21,16 @@ const customUiConfiguration = {
     ...baseUiConfiguration,
     headerSettings: customHeaderSettings,
     accountPageSettings: {
-        hideCpuInfo: false,
-        hideNetInfo: false,
-        hideRamInfo: false,
+        hideCpuInfo: true,
+        hideNetInfo: true,
+        hideRamInfo: true,
         hideRexInfo: true,
         hideRefundingInfo: true,
         hideDelegatedInfo: true,
         hideLiquidInfo: true,
 
-        hideResourcesControl: false,
-        hideRexControl: false,
+        hideResourcesControl: true,
+        hideRexControl: true,
 
         hideTransactionTab: false,
         hideTokensTab: false,
