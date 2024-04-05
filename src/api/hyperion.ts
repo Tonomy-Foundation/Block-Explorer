@@ -33,11 +33,6 @@ const hyperion = axios.create({ baseURL: chain.getHyperionEndpoint() });
 const controller = new AbortController();
 export const DEFAULT_ICON = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNyAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTgiIGN5PSI5IiByPSI4IiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjkiIGN5PSI5IiByPSI4IiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=';
 
-const name = chain.getName();
-
-const url =
-  `https://raw.githubusercontent.com/telosnetwork/token-list/main/tokens.${name}.json`;
-
 const tokenList =[{
     name: 'LEOS',
     symbol: 'LEOS',
@@ -46,14 +41,7 @@ const tokenList =[{
     logo: 'https://assets-global.website-files.com/65b7ac78e388a1fbc41df504/65b88c2c27b1437cd06c3249_logo2.png',
 }];
 
-const tokenListPromise = fetch(url)
-    .then(response => response.text())
-    .then((fileContent: string) => JSON.parse(fileContent) as { account: string }[])
-    .then(originals => originals.map(token => token as unknown as Token))
-    .catch((error) => {
-        console.error(error);
-        return [];
-    });
+const tokenListPromise = new Promise<Token[]>(() => tokenList);
 
 const MAX_REQUESTS_COUNT = 5;
 const INTERVAL_MS = 10;
