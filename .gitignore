@@ -8,8 +8,7 @@ node_modules
 
 # Quasar core related directories
 .quasar
-/dist
-
+dist
 
 # Log files
 npm-debug.log*

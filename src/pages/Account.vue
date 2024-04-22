@@ -103,7 +103,6 @@ export default defineComponent({
   margin-top: 1rem
   margin-left: auto
   margin-right: auto
-  margin-bottom: 2rem
   box-shadow: none
 .tabs
   color: white

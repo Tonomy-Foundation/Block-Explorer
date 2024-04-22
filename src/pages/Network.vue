@@ -187,6 +187,7 @@ export default defineComponent({
 }
 .price-box-position{
   margin-top: 2rem;
+  display: none;
   &.overlap-map{
     margin-top: -100px;
   }

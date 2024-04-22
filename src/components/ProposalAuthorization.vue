@@ -2,6 +2,7 @@
 import { defineComponent, ref, watch, computed, onMounted } from 'vue';
 import { api } from 'src/api';
 import { Name, UInt32 } from '@greymass/eosio';
+import { TableByScope } from 'src/types';
 
 interface RequiredAccounts {
     permissionName: Name;
@@ -94,13 +95,7 @@ export default defineComponent({
 
         async function searchAccounts(value: string): Promise<void> {
             try {
-                const accounts = await api.getTableByScope({
-                    code: 'eosio',
-                    limit: 5,
-                    lower_bound: value,
-                    table: 'userres',
-                    upper_bound: value.padEnd(12, 'z'),
-                });
+                const accounts = [{ payer: value }] as TableByScope[];
 
                 if (accounts.length > 0) {
                     // get table by scope for userres does not include system account
@@ -179,7 +174,6 @@ export default defineComponent({
             :loading="isLoading"
             :model-value="actorValue"
             :options="actorsOptions"
-            :rules="[value => !!value || 'Field is required', (value) => isLoading || actorsOptions.includes(value) || 'Field invalid']"
             :error="isActorError"
             @input-value="(value) => actorValue = value"
         >

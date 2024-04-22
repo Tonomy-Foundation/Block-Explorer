@@ -28,6 +28,7 @@ export default defineComponent({
         const isTestnet = ref(getChain().isTestnet());
         const smallLogoPath = ref(getChain().getSmallLogoPath());
         const largeLogoPath = ref(getChain().getLargeLogoPath());
+        const logoText = ref(getChain().getDisplay());
 
         const network = useRouteDataNetwork();
 
@@ -45,6 +46,7 @@ export default defineComponent({
             smallLogoPath,
             largeLogoPath,
             isTestnet,
+            logoText,
         };
     },
 });
@@ -53,14 +55,17 @@ export default defineComponent({
 <template>
 <div class="header-background">
     <div class="row text-center q-pt-sm justify-between q-pt-md">
-        <div class="logo-container col-xs-3 col-sm-2 col-md-2 col-lg-2">
+        <div class="logo-container col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <div class="q-px-xs-xs q-px-sm-xs q-px-md-md q-px-lg-md">
                 <div class="logo-header-container">
                     <div class="logo-chain-selector-container">
                         <a class="float-left" href="/">
                             <img v-if="isLarge" class="logo" :src="largeLogoPath">
                             <img v-else class="logo-token" :src="smallLogoPath">
+                            <p className="logo-text">{{logoText}}</p>
+
                         </a>
+
                         <ChainsMenu v-if="showMultichainSelector"/>
                     </div>
                     <div v-if="isTestnet" class="testnet-text">TESTNET</div>
@@ -140,9 +145,18 @@ export default defineComponent({
         margin-right: 4px
 
 .logo
-  width: 104px
-  height:40px
+  vertical-align: middle
+  width: 80px
+  height:65px
   object-fit: contain
+
+.logo-text
+  display: inline-block
+  vertical-align: middle
+  margin-bottom: 0px
+  font-size: 38px
+  color: var(--q-color-header-text)
+  font-weight: 500
 
 .logo-token
   width: 40px

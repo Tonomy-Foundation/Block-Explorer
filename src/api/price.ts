@@ -19,10 +19,10 @@ export const getCoingeckoPriceChartData = async (
     const priceHistoryUrl = `https://api.coingecko.com/api/v3/coins/${tokenId}/market_chart?vs_currency=USD&days=1`;  // &interval=hourly` - restore if when enterprise plan enabled;
 
     const [priceStats, priceHistory]: [PriceStats, PriceHistory] =
-    await Promise.all([
-        axios.get(exchangeStatsUrl),
-        axios.get(priceHistoryUrl),
-    ]);
+        await Promise.all([
+            axios.get(exchangeStatsUrl),
+            axios.get(priceHistoryUrl),
+        ]);
 
     return {
         lastUpdated: priceStats.data[tokenId].last_updated_at,
@@ -37,10 +37,10 @@ export const getCoingeckoPriceChartData = async (
 // eslint-disable-next-line @typescript-eslint/require-await
 export const getEmptyPriceChartData = async (): Promise<PriceChartData> => ({
     lastUpdated: 0,
-    tokenPrice: 0,
+    tokenPrice: 0.012,
     dayChange: 0,
     dayVolume: 0,
-    marketCap: 0,
+    marketCap: 1300000000,
     prices: [],
 });
 
