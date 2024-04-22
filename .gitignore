@@ -1,7 +1,6 @@
 .DS_Store
 .thumbs.db
 node_modules
-dist
 
 # Environment vars
 .env
@@ -9,6 +8,7 @@ dist
 
 # Quasar core related directories
 .quasar
+dist
 
 # Log files
 npm-debug.log*
