@@ -1,1 +1,0 @@
-"use strict";(globalThis["webpackChunkopen_block_explorer"]=globalThis["webpackChunkopen_block_explorer"]||[]).push([[987],{18987:(e,l,n)=>{n.r(l),n.d(l,{default:()=>t});var o=n(59835);const r=(0,o._)("h1",null,"Explore",-1),a=[r];function c(e,l,n,r,c,p){return(0,o.wg)(),(0,o.iD)("div",null,a)}const p={name:"ExplorePage"};var u=n(11639);const s=(0,u.Z)(p,[["render",c]]),t=s}}]);
