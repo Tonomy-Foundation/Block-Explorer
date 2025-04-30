@@ -34,12 +34,12 @@ const controller = new AbortController();
 export const DEFAULT_ICON = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjciIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyNyAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTgiIGN5PSI5IiByPSI4IiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjkiIGN5PSI5IiByPSI4IiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=';
 
 const tokenList =[{
-    name: 'LEOS',
-    symbol: 'LEOS',
+    name: 'TONO',
+    symbol: 'TONO',
     contract: 'eosio.token',
     precision: 6,
-    logo: 'https://assets-global.website-files.com/65b7ac78e388a1fbc41df504/65b88c2c27b1437cd06c3249_logo2.png',
-}];
+    logo: 'https://cdn.prod.website-files.com/67ea90b224287f4cbb2dd180/67ef991d349ec01179aec16d_icon1.png',
+}];	
 
 const tokenListPromise = new Promise<Token[]>(() => tokenList);
 

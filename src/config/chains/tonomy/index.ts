@@ -41,24 +41,24 @@ const customUiConfiguration = {
 };
 
 const CHAIN_ID =
-    '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
-const NAME = 'tonomy-testnet';
-const DISPLAY = 'Tonomy Testnet';
+    '66d565f72ac08f8321a3036e2d92eea7f96ddc90599bdbfc2d025d810c74c248';
+const NAME = 'tonomy';
+const DISPLAY = 'Tonomy';
 const TOKEN = {
-    symbol: 'LEOS',
+    symbol: 'TONO',
     precision: 6,
     amount: 0,
     contract: 'eosio.token',
 } as Token;
 const TOKEN_PRICE = 0.012;
-const HYPERION_ENDPOINT = 'https://test.pangea.eosusa.io';
+const HYPERION_ENDPOINT = 'https://pangea.eosusa.io';
 
 const RPC_ENDPOINT = {
     protocol: 'https',
-    host: 'test.pangea.eosusa.io',
+    host: 'pangea.eosusa.io',
     port: 443,
 };
-const API_ENDPOINT = 'https://test.pangea.eosusa.io';
+const API_ENDPOINT = 'https://pangea.eosusa.io';
 const S3_PRODUCER_BUCKET = '#';
 const DISPLAY_MAP = true;
 const THEME = {
@@ -86,7 +86,7 @@ const THEME = {
     'color-footer-background': '#5833BC',
 };
 
-export default class PangeaTestnet extends BaseChain {
+export default class Tonomy extends BaseChain {
     getName(): string {
         return NAME;
     }
@@ -132,11 +132,11 @@ export default class PangeaTestnet extends BaseChain {
     }
 
     getLargeLogoPath(): string {
-        return 'chains/pangea-testnet/tonomy-large-logo.png';
+        return 'chains/tonomy-testnet/tonomy-large-logo.png';
     }
 
     getSmallLogoPath(): string {
-        return 'chains/pangea-testnet/tonomy-large-logo.png';
+        return 'chains/tonomy-testnet/tonomy-large-logo.png';
     }
 
     getMapDisplay(): boolean {
