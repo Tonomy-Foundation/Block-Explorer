@@ -10,8 +10,8 @@ import Jungle from 'src/config/chains/jungle';
 import { ChainsConfig } from 'src/types/ChainsConfig';
 
 const chains: ChainsConfig = {
-    mainnets: [new EOS('eos'), new Telos('telos'), new UX('ux'), new Wax('wax'), new Pangea('pangea')],
-    testnets: [new Jungle('jungle'), new TelosTestnet('telos-testnet'), new PangeaTestnet('pangea-testnet')],
+    mainnets: [new EOS('eos'), new Telos('telos'), new UX('ux'), new Wax('wax'), new Pangea('tonomy')],
+    testnets: [new Jungle('jungle'), new TelosTestnet('telos-testnet'), new PangeaTestnet('tonomy-testnet')],
 };
 
 export default chains;
