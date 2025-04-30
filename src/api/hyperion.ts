@@ -39,7 +39,7 @@ const tokenList =[{
     contract: 'eosio.token',
     precision: 6,
     logo: 'https://cdn.prod.website-files.com/67ea90b224287f4cbb2dd180/67ef991d349ec01179aec16d_icon1.png',
-}];	
+}];
 
 const tokenListPromise = new Promise<Token[]>(() => tokenList);
 
