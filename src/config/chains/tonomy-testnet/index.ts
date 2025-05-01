@@ -79,11 +79,11 @@ const THEME = {
     'color-progress-gradient': '#571aff',
     'color-producer-card-background': '#f5f4fe',
     'color-select-box-background': '#e0dffb',
-    'color-header-background': '#5833BC',
+    'color-header-background': '#ffffff',
     'color-header-border': '#8a65d41a',
     'color-header-support-background': 'linear-gradient(180deg, #313938 0%, #313938 147.34%)',
     'color-graph-shadow': '#571aff28',
-    'color-footer-background': '#5833BC',
+    'color-footer-background': '#ffffff',
 };
 
 export default class TonomyTestnet extends BaseChain {

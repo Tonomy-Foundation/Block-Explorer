@@ -27,7 +27,7 @@ export const DEFAULT_THEME = {
     'color-card-shadow': 'rgba(37, 42, 97, 0.3)',
     'color-dropdown-card': '#172c6c',
     'color-header-background': '#4C4C4C',
-    'color-header-text': '#FFFFFF',
+    'color-header-text': '#000000',
     'color-header-border': '#777777',
     'color-header-support-background': 'linear-gradient(180deg, #4C4C4C 0%, #3B3B3B 147.34%)',
     'color-graph-shadow': '#3f65c228',
