@@ -3,15 +3,15 @@ import Telos from 'src/config/chains/telos';
 import UX from 'src/config/chains/ux';
 import Wax from 'src/config/chains/wax';
 import TelosTestnet from 'src/config/chains/telos-testnet';
-import PangeaTestnet from 'src/config/chains/pangea-testnet';
-import Pangea from 'src/config/chains/pangea';
+import TonomyTestnet from 'src/config/chains/tonomy-testnet';
+import Tonomy from 'src/config/chains/tonomy';
 import Jungle from 'src/config/chains/jungle';
 
 import { ChainsConfig } from 'src/types/ChainsConfig';
 
 const chains: ChainsConfig = {
-    mainnets: [new EOS('eos'), new Telos('telos'), new UX('ux'), new Wax('wax'), new Pangea('pangea')],
-    testnets: [new Jungle('jungle'), new TelosTestnet('telos-testnet'), new PangeaTestnet('pangea-testnet')],
+    mainnets: [new EOS('eos'), new Telos('telos'), new UX('ux'), new Wax('wax'), new Tonomy('tonomy')],
+    testnets: [new Jungle('jungle'), new TelosTestnet('telos-testnet'), new TonomyTestnet('tonomy-testnet')],
 };
 
 export default chains;

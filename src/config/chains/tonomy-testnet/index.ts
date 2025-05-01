@@ -41,28 +41,28 @@ const customUiConfiguration = {
 };
 
 const CHAIN_ID =
-    '66d565f72ac08f8321a3036e2d92eea7f96ddc90599bdbfc2d025d810c74c248';
-const NAME = 'pangea';
-const DISPLAY = 'Pangea';
+    '8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f';
+const NAME = 'tonomy-testnet';
+const DISPLAY = 'Tonomy Testnet';
 const TOKEN = {
-    symbol: 'LEOS',
+    symbol: 'TONO',
     precision: 6,
     amount: 0,
     contract: 'eosio.token',
 } as Token;
 const TOKEN_PRICE = 0.012;
-const HYPERION_ENDPOINT = 'https://pangea.eosusa.io';
+const HYPERION_ENDPOINT = 'https://test.pangea.eosusa.io';
 
 const RPC_ENDPOINT = {
     protocol: 'https',
-    host: 'pangea.eosusa.io',
+    host: 'test.pangea.eosusa.io',
     port: 443,
 };
-const API_ENDPOINT = 'https://pangea.eosusa.io';
+const API_ENDPOINT = 'https://test.pangea.eosusa.io';
 const S3_PRODUCER_BUCKET = '#';
 const DISPLAY_MAP = true;
 const THEME = {
-    primary: '#007bff',
+    primary: '#5833BC',
     secondary: '#FF505F',
     accent: '#9C27B0',
     dark: '#1d1d1d',
@@ -79,14 +79,14 @@ const THEME = {
     'color-progress-gradient': '#571aff',
     'color-producer-card-background': '#f5f4fe',
     'color-select-box-background': '#e0dffb',
-    'color-header-background': '#007bff',
+    'color-header-background': '#5833BC',
     'color-header-border': '#8a65d41a',
     'color-header-support-background': 'linear-gradient(180deg, #313938 0%, #313938 147.34%)',
     'color-graph-shadow': '#571aff28',
-    'color-footer-background': '#007bff',
+    'color-footer-background': '#5833BC',
 };
 
-export default class Pangea extends BaseChain {
+export default class TonomyTestnet extends BaseChain {
     getName(): string {
         return NAME;
     }
@@ -132,11 +132,11 @@ export default class Pangea extends BaseChain {
     }
 
     getLargeLogoPath(): string {
-        return 'chains/pangea-testnet/pangea-large-logo.png';
+        return 'chains/tonomy-testnet/tonomy-large-logo.png';
     }
 
     getSmallLogoPath(): string {
-        return 'chains/pangea-testnet/pangea-large-logo.png';
+        return 'chains/tonomy-testnet/tonomy-large-logo.png';
     }
 
     getMapDisplay(): boolean {
@@ -156,8 +156,8 @@ export default class Pangea extends BaseChain {
 
     getFooterLinks(): FooterLink[] {
         return [
-            { label: 'LEGAL', url: 'https://pangea.web4.world' },
-            { label: 'PRIVACY', url: 'https://pangea.web4.world' },
+            { label: 'LEGAL', url: 'https://tonomy.io' },
+            { label: 'PRIVACY', url: 'https://tonomy.io' },
             { label: 'REPOSITORY', url: 'https://github.com/Tonomy-Foundation/Block-Explorer' },
         ];
     }
