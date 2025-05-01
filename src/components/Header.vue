@@ -128,6 +128,7 @@ export default defineComponent({
 .q-tab
     text-transform: unset
     font-size: 18px
+    color: #000000
 
 .logo-header-container
     position: relative
@@ -146,7 +147,7 @@ export default defineComponent({
 
 .logo
   vertical-align: middle
-  width: 80px
+  width: 65px
   height:65px
   object-fit: contain
 
@@ -154,7 +155,7 @@ export default defineComponent({
   display: inline-block
   vertical-align: middle
   margin-bottom: 0px
-  font-size: 38px
+  font-size: 28px
   color: var(--q-color-header-text)
   font-weight: 500
 
