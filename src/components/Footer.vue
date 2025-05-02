@@ -33,5 +33,5 @@ export default {
     backdrop-filter: blur(14px)
 .no-dec
     text-decoration: none
-    color: white
+    color: black
 </style>
