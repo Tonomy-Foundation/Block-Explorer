@@ -231,6 +231,7 @@ export default defineComponent({
         </q-item>
     </template>
     <template #option="scope">
+
         <q-item-label v-if="scope.opt.isHeader" header>{{ scope.opt.label }}</q-item-label>
         <q-item
             v-else
@@ -253,5 +254,5 @@ export default defineComponent({
   border-radius: 4px
 
 .search-input .q-select__dropdown-icon
-  color: white
+  color: #666666
 </style>
