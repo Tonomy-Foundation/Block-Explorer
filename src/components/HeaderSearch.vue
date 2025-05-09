@@ -255,4 +255,8 @@ export default defineComponent({
 
 .search-input .q-select__dropdown-icon
   color: #666666
+
+.q-field--filled .q-field__control
+    background: #FAFAFA
+    border-radius: 4px
 </style>
