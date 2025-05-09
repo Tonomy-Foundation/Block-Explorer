@@ -270,4 +270,9 @@ export default defineComponent({
 
 .q-field--filled .q-field__control:after
     background: transparent
+
+.q-field--filled .q-field__control::before 
+    border-bottom: none
+    background: transparent
+
 </style>
