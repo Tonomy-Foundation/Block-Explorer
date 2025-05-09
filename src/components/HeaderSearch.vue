@@ -265,7 +265,9 @@ export default defineComponent({
   border: 1px solid #5833BC
   background: #FAFAFA
 
-.q-field--filled .q-field__control:after
 .q-field--filled.q-field--highlighted .q-field__control:before
     background: none
+
+.q-field--filled .q-field__control:after
+    background: transparent
 </style>
