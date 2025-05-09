@@ -196,6 +196,7 @@ export default defineComponent({
 
 <template>
 <q-select
+    bg-color="#FAFAFA"
     borderless
     dense
     filled
@@ -203,8 +204,8 @@ export default defineComponent({
     hide-selected
     fill-input
     hide-bottom-space
-    input-style="color:white"
-    color="white"
+    input-style="color:#666666"
+    color="#666666"
     :loading="isLoading"
     :model-value="inputValue"
     :options="options"
@@ -217,7 +218,7 @@ export default defineComponent({
         <q-icon
             class="rotate-90"
             name="search"
-            color="white"
+            color="#666666"
             size="20px"
         />
     </template>
