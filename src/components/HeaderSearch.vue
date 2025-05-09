@@ -196,7 +196,6 @@ export default defineComponent({
 
 <template>
 <q-select
-    bg-color="#FAFAFA"
     borderless
     dense
     filled
@@ -259,4 +258,10 @@ export default defineComponent({
 .q-field--filled .q-field__control
     background: #FAFAFA
     border-radius: 4px
+    border: 1px solid #F0F0F0
+
+.q-field--focused.q-field--filled .q-field__control
+  border-radius: 4px
+  border: 1px solid #5833BC
+  background: #FAFAFA
 </style>
