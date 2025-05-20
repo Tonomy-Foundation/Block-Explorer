@@ -203,8 +203,8 @@ export default defineComponent({
     hide-selected
     fill-input
     hide-bottom-space
-    input-style="color:white"
-    color="white"
+    input-style="color:#666666"
+    color="#666666"
     :loading="isLoading"
     :model-value="inputValue"
     :options="options"
@@ -217,7 +217,7 @@ export default defineComponent({
         <q-icon
             class="rotate-90"
             name="search"
-            color="white"
+            color="#666666"
             size="20px"
         />
     </template>
@@ -230,6 +230,7 @@ export default defineComponent({
         </q-item>
     </template>
     <template #option="scope">
+
         <q-item-label v-if="scope.opt.isHeader" header>{{ scope.opt.label }}</q-item-label>
         <q-item
             v-else
@@ -252,5 +253,25 @@ export default defineComponent({
   border-radius: 4px
 
 .search-input .q-select__dropdown-icon
-  color: white
+  color: #666666
+
+.q-field--filled .q-field__control
+    background: #FAFAFA
+    border-radius: 4px
+    border: 1px solid #F0F0F0
+
+.q-field--focused.q-field--filled .q-field__control
+  border-radius: 4px
+  border: 1px solid #5833BC
+  background: #FAFAFA
+
+.q-field--filled.q-field--highlighted .q-field__control:before
+    background: none
+
+.q-field--filled .q-field__control:after
+    background: transparent
+
+.q-field--filled .q-field__control:before
+    border-bottom: none
+    background: transparent
 </style>
